@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+#from fastapi import FastAPI
 from key import key # import the key variable from key.py
 # import TinyDB from tinydb
 
@@ -25,8 +25,16 @@ userexample = {
 }
 
 #from llama_index.llms.openrouter import OpenRouter #marche pas
+#from openai import OpenAI #marche pas
+#import requests #marche pas
+
+from utils.AIModelresponse import get_ai_response
 
 
+prompt = "Give me a short introduction to large language model."
+messages = [         {"role": "user", "content": prompt}     ]
 
 
+response = get_ai_response(messages)
+print("Final response:", response)
 #app = FastAPI()
