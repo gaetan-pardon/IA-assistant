@@ -6,12 +6,11 @@ from fastapi.responses import JSONResponse
 from database.database import get_next_user_id
 from model.user import User
 from request.UserRequest import UserRequest
-from utils.registrationManagement import hash_password
+from utils.registrationManagement import hash_password, verify_password
 
 from database.database import insertUser, getUserByEmail
 
 from utils.jwtConfig import create_access_token, verify_access_token
-
 
 app = FastAPI()
 
@@ -119,7 +118,7 @@ async def registerUser(user_request: UserRequest):
     user_to_create = User(
         id = get_next_user_id(),
         email = user_request.email,
-        hashed_password = hashed_password
+        hashed_password = hashed_password,
     )
 
     inserted_user_id = insertUser(user_to_create)
@@ -135,7 +134,7 @@ async def registerUser(user_request: UserRequest):
 
 @app.post("/login")
 async def loginUser(user_request: UserRequest):
-   user = getUserByEmail(user_request.email)
+   user = User(**dict(getUserByEmail(user_request.email)))
    if user is None:
       return JSONResponse(status_code=404, content={
             "status": 404,
@@ -143,8 +142,8 @@ async def loginUser(user_request: UserRequest):
             "details": "You must create an account first."
          })
    
-   given_hashed_password = hash_password(user_request.password)
-   if given_hashed_password != user.hashed_password:
-      return JSONResponse(status_code=401, content={ "status": 200, "message": "Login failed", "details": "Wrong password" })
+   if verify_password(user_request.password, user.hashed_password) == False:
+      return JSONResponse(status_code=401, content={ "status": 401, "message": "Login failed", "details": "Wrong password" })
+
    token = create_access_token(user.email)
    return JSONResponse(status_code=200, content={ "status": 200, "message": "Login successful", "data": {"email": user.email, "access_token": token} })

@@ -1,7 +1,4 @@
 from tinydb import TinyDB, Query
-from model.user import User
-from model.history import History, Message
-from pydantic import EmailStr
 
 
 db = TinyDB("database/database.json")
@@ -22,14 +19,12 @@ def getUsers():
     return users.all()
 
 def getUserById(id: int):
-    doc = users.get(query.id == id)
-    return User(**dict(doc))
+    return users.get(query.id == id)
 
-def getUserByEmail(email: EmailStr):
-    doc = users.get(query.email == email)
-    return User(**dict(doc))
+def getUserByEmail(email: str):
+    return users.get(query.email == email)
 
-def insertUser(user: User):
+def insertUser(user: dict):
     existingUser = getUserByEmail(user.email)
     if existingUser is not None:
         return existingUser
@@ -38,7 +33,7 @@ def insertUser(user: User):
 def deleteUserByid(id: int):
     return users.remove(query.id == id)
 
-def deleteUserByEmail(email: EmailStr):
+def deleteUserByEmail(email: str):
     return users.remove(query.email == email)
 
 
@@ -56,13 +51,13 @@ def getHistory():
 def getHistoryById(id: int):
     return history.get(query.id == id)
 
-def insertHistory(history_item: History):
+def insertHistory(history_item: dict):
     return history.insert(history_item.dict())
 
 def deleteById(id: int):
     return history.remove(query.id == id)
 
-def addMessageToHistory(history_id: int, message: Message):
+def addMessageToHistory(history_id: int, message: dict):
     history_item = getHistoryById(history_id)
     if history_item is None:
         return None
