@@ -16,7 +16,7 @@ from utils.jwtConfig import create_access_token, verify_access_token
 
 app = FastAPI()
 
-""" origins= [
+origins= [
    "http://localhost:5173"
 ]
 
@@ -26,7 +26,7 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-) """
+)
 
 @app.exception_handler(HTTPException)
 async def http_exception_handler(request: Request, exc: HTTPException):

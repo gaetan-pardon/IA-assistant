@@ -4,7 +4,7 @@ from model.history import History, Message
 from pydantic import EmailStr
 
 
-db = TinyDB("database.json")
+db = TinyDB("database/database.json")
 users = db.table("users")
 history = db.table("history")
 query = Query()
