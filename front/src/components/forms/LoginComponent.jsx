@@ -13,13 +13,14 @@ export function LoginForm() {
         const email = form.elements['email'].value;
         const password = form.elements['password'].value;
     
+
         try {
             const response = await loginUser(email, password);
             if (response.status !== 200) {
-                setError(response.details || "Registration failed");
+                setError(response.details || "Login failed");
                 return;
             } else {
-                setError(null);
+                setError(response.message);
             }
         } catch (error) {
             setError(error.message || "Network error");
@@ -37,7 +38,7 @@ export function LoginForm() {
                 <button type="submit">Log in</button>
                 <div>Don't have an account? Click <Link to="/register">here</Link></div>
             </form>
-            <div>{error}</div>
+            <div className="error">{error}</div>
         </section>
     )
 }

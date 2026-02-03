@@ -50,3 +50,9 @@
 .connection-form button:active {
     background-color: #004085;
 }
+
+.error {
+    align-items: center;
+    text-align: center;
+    color: red;
+}

@@ -26,7 +26,8 @@ export function RegistrationForm() {
                 setError(response.details || "Registration failed");
                 return;
             } else {
-                setError(null);
+                setError(response.message);
+                return;
             }
         } catch (error) {
             setError(error.message || "Network error");
@@ -46,7 +47,7 @@ export function RegistrationForm() {
                 <button type="submit">Create account</button>
                 <div>Already have an account? Click <Link to="/login">here</Link></div>
             </form>
-            <div>{error}</div>
+            <div className="error">{error}</div>
         </section>
     )
 }

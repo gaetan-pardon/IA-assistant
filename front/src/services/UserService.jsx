@@ -9,7 +9,6 @@ const baseURL = 'http://localhost:8000'
 export async function registerUser(email, password) {
     try {
         
-        console.log(JSON.stringify({ "email": email, "password": password }));
         const response = await fetch(`${baseURL}/register`, {
             method: 'POST',
             headers: {
@@ -17,8 +16,9 @@ export async function registerUser(email, password) {
             },
             body: JSON.stringify({ "email": email, "password": password })
         });
-
-        return await response.json();
+        const returned_response = await response.json();
+        console.log(returned_response)
+        return returned_response;
     } catch (error) {
         console.error('Error registering user:', error);
         throw error;
@@ -33,19 +33,14 @@ export async function registerUser(email, password) {
  */
 export async function loginUser(email, password) {
     try {
-        const response = await fetch('/login', {
+        const response = await fetch(`${baseURL}/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ email, password })
         });
-
-        if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.details || 'Login failed');
-        }
-
+        console.log("response: " + response)
         return await response.json();
     } catch (error) {
         console.error('Error logging in user:', error);
