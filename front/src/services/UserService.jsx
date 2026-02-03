@@ -2,8 +2,8 @@ const baseURL = 'http://localhost:8000'
 
 /**
  * Registers a new user with the given email and password.
- * @param {*} email - user's email
- * @param {*} password - user's password
+ * @param {str} email - user's email
+ * @param {str} password - user's password
  * @returns response data
  */
 export async function registerUser(email, password) {
@@ -25,10 +25,11 @@ export async function registerUser(email, password) {
     }
 }
 
+
 /**
  * Logs in a user with the given email and password.
- * @param {*} email - user's email
- * @param {*} password - user's password
+ * @param {str} email - user's email
+ * @param {str} password - user's password
  * @returns response data
  */
 export async function loginUser(email, password) {
