@@ -1,4 +1,5 @@
 import json
+from dotenv import dotenv_values
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -11,6 +12,11 @@ from utils.registrationManagement import hash_password, verify_password
 from database.database import insertUser, getUserByEmail
 
 from utils.jwtConfig import create_access_token, verify_access_token
+
+config = dotenv_values(".env")
+
+TOKEN_EXPIRE_MINUTES = int(config["TOKEN_EXPIRE_MINUTES"])
+
 
 app = FastAPI()
 
@@ -131,7 +137,6 @@ async def registerUser(user_request: UserRequest):
     return JSONResponse(status_code=201, content={ "status": 201, "message": "User created successfully", "data": {"id": inserted_user_id, "email": user_to_create.email} })
 
 
-
 @app.post("/login")
 async def loginUser(user_request: UserRequest):
    user = User(**dict(getUserByEmail(user_request.email)))
@@ -146,4 +151,13 @@ async def loginUser(user_request: UserRequest):
       return JSONResponse(status_code=401, content={ "status": 401, "message": "Login failed", "details": "Wrong password" })
 
    token = create_access_token(user.email)
-   return JSONResponse(status_code=200, content={ "status": 200, "message": "Login successful", "data": {"email": user.email, "access_token": token} })
+   response = JSONResponse(status_code=200, content={ "status": 200, "message": "Login successful", "data": {"email": user.email, "access_token": token} })
+   response.set_cookie(
+      key = "access_token",
+      value = token,
+      httponly = True,
+      secure = False,
+      samesite = "lax",
+      max_age = TOKEN_EXPIRE_MINUTES * 60000
+   )
+   return response
