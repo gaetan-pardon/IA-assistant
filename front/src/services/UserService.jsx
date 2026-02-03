@@ -1,3 +1,5 @@
+const baseURL = 'http://localhost:8000'
+
 /**
  * Registers a new user with the given email and password.
  * @param {*} email - user's email
@@ -6,7 +8,7 @@
  */
 export async function registerUser(email, password) {
     try {
-        const response = await fetch('/register', {
+        const response = await fetch(`${baseURL}/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
