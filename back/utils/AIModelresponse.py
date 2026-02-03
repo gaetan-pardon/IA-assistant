@@ -41,8 +41,8 @@ def get_ai_response(messages):
     thinking_content = tokenizer.decode(output_ids[:index], skip_special_tokens=True).strip("\n")
     content = tokenizer.decode(output_ids[index:], skip_special_tokens=True).strip("\n")
 
-    print("thinking content:", thinking_content)
-    print("content:", content)
+    #print("thinking content:", thinking_content)
+    #print("content:", content)
     if thinking_content != "":
         newmessages = messages + [{"role": "thinking_assistant", "content": thinking_content}, {"role": "assistant", "content": content}]
     else:
