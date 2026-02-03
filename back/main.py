@@ -1,4 +1,4 @@
-#from fastapi import FastAPI
+from fastapi import FastAPI
 from key import key # import the key variable from key.py
 # import TinyDB from tinydb
 
