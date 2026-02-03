@@ -1,0 +1,8 @@
+torch
+transformers
+accelerate
+python-jose
+pydantic
+fastapi
+uvicorn
+dotenv
