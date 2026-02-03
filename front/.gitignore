@@ -7,10 +7,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-front/node_modules
-front/dist
-front/dist-ssr
-front/*.local
+node_modules
+dist
+dist-ssr
+*.local
 
 # Editor directories and files
 .vscode/*
@@ -22,9 +22,3 @@ front/*.local
 *.njsproj
 *.sln
 *.sw?
-
-back/key.txt
-SKILL.md
-key.py
-__pycache__/
-back/.env
