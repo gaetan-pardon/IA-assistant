@@ -8,12 +8,14 @@ const baseURL = 'http://localhost:8000'
  */
 export async function registerUser(email, password) {
     try {
+        
+        console.log(JSON.stringify({ "email": email, "password": password }));
         const response = await fetch(`${baseURL}/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email, password })
+            body: JSON.stringify({ "email": email, "password": password })
         });
 
         return await response.json();
