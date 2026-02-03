@@ -8,7 +8,6 @@ from model.user import User
 from request.UserRequest import UserRequest
 from utils.registrationManagement import hash_password
 
-from tinydb import TinyDB, Query
 from database.database import insertUser, getUserByEmail
 
 from utils.jwtConfig import create_access_token, verify_access_token
