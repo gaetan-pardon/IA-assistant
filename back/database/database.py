@@ -1,6 +1,6 @@
 from tinydb import TinyDB, Query
-from user import User
-from back.model.history import History, Message
+from model.user import User
+from model.history import History, Message
 from pydantic import EmailStr
 
 
@@ -31,7 +31,7 @@ def insertUser(user: User):
     existingUser = getUserByEmail(user.email)
     if existingUser is not None:
         return existingUser
-    return users.insert(user)
+    return users.insert(user.dict())
 
 def deleteUserByid(id: int):
     return users.remove(query.id == id)
