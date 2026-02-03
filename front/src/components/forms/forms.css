@@ -1,4 +1,4 @@
-.registration-form {
+.connection-form {
     background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -12,7 +12,7 @@
     gap: 15px;
 }
 
-.registration-form input {
+.connection-form input {
     padding: 10px 12px;
     border: 1px solid #ced4da;
     border-radius: 6px;
@@ -24,13 +24,13 @@
     color: #000000;
 }
 
-.registration-form input:focus {
+.connection-form input:focus {
     outline: none;
     border-color: #007bff;
     box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 
-.registration-form button {
+.connection-form button {
     background-color: #007bff;
     color: white;
     border: none;
@@ -43,10 +43,10 @@
     margin-top: 10px;
 }
 
-.registration-form button:hover {
+.connection-form button:hover {
     background-color: #0056b3;
 }
 
-.registration-form button:active {
+.connection-form button:active {
     background-color: #004085;
 }
