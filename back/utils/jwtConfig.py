@@ -9,17 +9,17 @@ ALGORITHM = config["ALGORITHM"]
 TOKEN_EXPIRE_MINUTES = int(config["TOKEN_EXPIRE_MINUTES"])
 
 
-def create_access_token(user_id: int) -> str:
+def create_access_token(email: str) -> str:
     """Create a JWT access token for the given user ID.
     Args:
         user_id (int): The ID of the user.
     Returns:
-        str: The encoded JWT token.
+        token (str): The encoded JWT token.
     """
     expire = datetime.now(tz=timezone.utc) + timedelta(minutes=TOKEN_EXPIRE_MINUTES)
 
     payload = {
-        "sub": str(user_id),
+        "sub": str(email),
         "iat": datetime.now(tz=timezone.utc),
         "exp": expire
     }

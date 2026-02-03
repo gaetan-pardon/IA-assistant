@@ -22,10 +22,12 @@ def getUsers():
     return users.all()
 
 def getUserById(id: int):
-    return users.get(query.id == id)
+    doc = users.get(query.id == id)
+    return User(**dict(doc))
 
 def getUserByEmail(email: EmailStr):
-    return users.get(query.email == email)
+    doc = users.get(query.email == email)
+    return User(**dict(doc))
 
 def insertUser(user: User):
     existingUser = getUserByEmail(user.email)

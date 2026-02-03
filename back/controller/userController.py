@@ -129,20 +129,22 @@ async def registerUser(user_request: UserRequest):
             "message": "Internal server error",
             "details": "Failed to create user"
          })
-    return JSONResponse(status_code=201, content={"id": inserted_user_id, "email": user_to_create.email})
+    return JSONResponse(status_code=201, content={ "status": 201, "message": "User created successfully", "data": {"id": inserted_user_id, "email": user_to_create.email} })
 
 
 
 @app.post("/login")
 async def loginUser(user_request: UserRequest):
-    user = getUserByEmail(user_request.email)
-    if user is None:
+   user = getUserByEmail(user_request.email)
+   if user is None:
       return JSONResponse(status_code=404, content={
             "status": 404,
             "message": "User not found",
             "details": "You must create an account first."
          })
-    
-    token = create_access_token(user.id)
-
-    return JSONResponse(status_code=200, content={"email": user.email, "access_token": token, "token_type": "bearer"})
+   
+   given_hashed_password = hash_password(user_request.password)
+   if given_hashed_password != user.hashed_password:
+      return JSONResponse(status_code=401, content={ "status": 200, "message": "Login failed", "details": "Wrong password" })
+   token = create_access_token(user.email)
+   return JSONResponse(status_code=200, content={ "status": 200, "message": "Login successful", "data": {"email": user.email, "access_token": token} })
