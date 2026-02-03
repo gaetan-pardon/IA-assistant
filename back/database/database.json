@@ -1,1 +1,1 @@
-{"users": {"1": {"id": 1, "email": "pedrona.guillaume@orange.fr", "hashed_password": "$2b$12$Cgyndta7Ve.drQ5QthqRxO91Om.urT1f9kpNyXBSril8dlGhVLCm2"}}}
+{"users": {"1": {"id": 1, "email": "pedrona.guillaume@orange.fr", "hashed_password": "$2b$12$Cgyndta7Ve.drQ5QthqRxO91Om.urT1f9kpNyXBSril8dlGhVLCm2"}, "2": {"id": 2, "email": "t@t.fr", "hashed_password": "$2b$12$/o2vu4xOBUetG5UxEiVFU.UJSMeTnTD6FSyst84ckeGu0LUmKbBdm"}}}
