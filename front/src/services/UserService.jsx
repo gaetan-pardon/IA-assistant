@@ -38,9 +38,9 @@ export async function loginUser(email, password) {
             headers: {
                 'Content-Type': 'application/json'
             },
+            credentials: "include",
             body: JSON.stringify({ email, password })
         });
-        console.log("response: " + response)
         return await response.json();
     } catch (error) {
         console.error('Error logging in user:', error);
