@@ -1,4 +1,12 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer
+from openai import OpenAI
+#from key import key # import the key variable from key.py
+from dotenv import dotenv_values
+
+config = dotenv_values(".env")
+
+TOKEN_OPENROUTER = str(config["TOKEN_OPENROUTER"])
+
 
 model_name = "Qwen/Qwen3-0.6B"
 
@@ -48,3 +56,27 @@ def get_ai_response(messages):
     else:
         newmessages = messages + [{"role": "assistant", "content": content}]
     return newmessages
+
+
+def get_ai_response_distant(messages):
+        
+    client = OpenAI(
+    base_url="https://openrouter.ai/api/v1",
+    api_key=TOKEN_OPENROUTER , #key 
+    )
+    completion = client.chat.completions.create(
+    extra_headers={
+        "HTTP-Referer": "<YOUR_SITE_URL>", # Optional. Site URL for rankings on openrouter.ai.
+        "X-Title": "<YOUR_SITE_NAME>", # Optional. Site title for rankings on openrouter.ai.
+    },
+    model="z-ai/glm-4.5-air:free",
+    messages=messages
+    )
+    newmessages = messages + [{"role": "assistant", "content": completion.choices[0].message.content}]
+    return newmessages
+    """[
+        {
+        "role": "user",
+        "content": "5+13?"
+        }
+    ]"""

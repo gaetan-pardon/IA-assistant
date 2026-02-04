@@ -1,5 +1,5 @@
 #from fastapi import FastAPI
-from key import key # import the key variable from key.py
+
 # import TinyDB from tinydb
 
 
@@ -28,13 +28,17 @@ userexample = {
 #from openai import OpenAI #marche pas
 #import requests #marche pas
 
-from utils.AIModelresponse import get_ai_response
+from utils.AIModelresponse import get_ai_response, get_ai_response_distant
 
 
-prompt = "Give me a short introduction to large language model."
+prompt = "Give me a very short introduction to large language model."
 messages = [         {"role": "user", "content": prompt}     ]
 
 
 response = get_ai_response(messages)
 print("Final response:", response)
+
+response = get_ai_response_distant(messages)
+print("Final response:", response)
+
 #app = FastAPI()
