@@ -33,7 +33,8 @@ export default function ChatBot() {
         if (loading) {
             return <div>Loading...</div>;
         } else if (!isAuthenticated) {
-            navigate("/login");
+            /* navigate("/login"); */
+            console.log("User not authenticated, redirecting to login...");
             return null;
         }
 
@@ -44,9 +45,9 @@ export default function ChatBot() {
                 const response = await createHistory(); /*createHistory*/
             } } >New conversation</button>
             <ul>
-                {history.map(item => (
+                {history && history.map(item => (
                     <li><h2>{item.name}</h2>
-                    {item.messages.map(message => (
+                    {item.messages && item.messages.map(message => (
                     <li key={message.id}>{message.content}</li> ))}
                     <form onSubmit={async (e) => {
                         e.preventDefault();

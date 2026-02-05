@@ -4,6 +4,11 @@
             "id": 1,
             "email": "pedrona.guillaume@orange.fr",
             "hashed_password": "$2b$12$/xtAvIkCQ3xZ3Dy32E2hs.BeNEWUaypZhKnnggarVRw4fr47BH9lC"
+        },
+        "2": {
+            "id": 2,
+            "email": "t@t.fr",
+            "hashed_password": "$2b$12$Icodkwhw7N8ghG51bZ0QkehrBVj3pm7SRYjHSTziS9Pm7BLPyCNw2"
         }
     }
 }
