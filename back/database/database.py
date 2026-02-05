@@ -59,23 +59,17 @@ def insertHistory(history_item: dict):
     return history.insert(history_item.dict())
 
 def addMessageToHistory(history_id: int, message: dict):
-    print('BDD: Adding message to history with id:', history_id)
-    print('Message to add:', message)
     history_item = getHistoryById(history_id)
-    print('Current history item before adding message:', history_item)
     if history_item is None:
         return None
     messages = history_item.get("messages", [])
-    print('Current messages in history item:', messages)
     # Convertir le message en dictionnaire s'il est un objet Pydantic
     message_dict = message.dict() if hasattr(message, 'dict') else message
     # S'assurer que le timestamp est sérialisable en JSON
     if isinstance(message_dict.get("timestamp"), datetime):
         message_dict["timestamp"] = message_dict["timestamp"].isoformat()
     messages.append(message_dict)
-    print('Messages in history item after adding new message:', messages)
     history.update({"messages": messages}, query.id == history_id)
-    print('History item after update:', getHistoryById(history_id))
     return history_item
 
 def deleteById(id: int):

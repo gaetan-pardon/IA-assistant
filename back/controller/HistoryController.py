@@ -54,12 +54,7 @@ async def createHistoryRoute(current_user: User = Depends(get_current_user)):
 
 @app.post("/history/{history_id}/message")
 async def addMessageToHistoryRoute(history_id: int, newMessageRequest: NewMessageRequest, current_user: User = Depends(get_current_user)):
-    print('Received request to add message to history item with id:', history_id)
-    print('Message content:', newMessageRequest.message)
-    print('Current user:', current_user.email)
-
     history_item = getHistoryById(history_id)
-    print('Retrieved history item:', history_item)
 
     if history_item is None:
         return JSONResponse(status_code=404, content={
@@ -82,17 +77,12 @@ async def addMessageToHistoryRoute(history_id: int, newMessageRequest: NewMessag
     else:
         next_message_id = get_max_id(messages) + 1
 
-    print('messages in history item:', messages)
-    print('Next message ID:', next_message_id)
-
     message_to_insert = Message(
         id = next_message_id,
         role = "user",
         content = newMessageRequest.message,
         timestamp = datetime.now().isoformat()
     )
-
-    print('Message to insert:', message_to_insert)
 
     # Ajouter le message de l'utilisateur
     addMessageToHistory(history_id, message_to_insert)
@@ -106,18 +96,14 @@ async def addMessageToHistoryRoute(history_id: int, newMessageRequest: NewMessag
             "details": "Failed to retrieve updated history"
         })
 
-    print('Updated history item after adding user message:', updated_history)
-    
     # Obtenir la réponse de l'IA
     aiResponse = get_ai_response_distant(updated_history["messages"])
-    print('AI response:', aiResponse)
     
     # Ajouter la réponse de l'IA
     addMessageToHistory(history_id, aiResponse)
     
     # Récupérer l'historique final
     final_history = getHistoryById(history_id)
-    print('Final history item after adding AI response:', final_history)
 
     return JSONResponse(status_code=200, content={
         "status": 200,

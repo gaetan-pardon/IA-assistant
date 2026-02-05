@@ -44,11 +44,7 @@ messagestime = [
 
 
 response = get_ai_response(messagestime)
-print("Final response:", response)
-
-print("/n/n/n response distant /n/n/n")
 
 response = get_ai_response_distant(messagestime)
-print("Final response:", response)
 
 #app = FastAPI()

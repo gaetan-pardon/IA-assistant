@@ -63,8 +63,6 @@ def get_ai_response(messages):
     thinking_content = tokenizer.decode(output_ids[:index], skip_special_tokens=True).strip("\n")
     content = tokenizer.decode(output_ids[index:], skip_special_tokens=True).strip("\n")
 
-    #print("thinking content:", thinking_content)
-    #print("content:", content)
     if thinking_content != "":
         newmessages = messages + [{"id": max_id+1, "role": "thinking_assistant", "content": thinking_content ,  "timestamp": datetime.now().isoformat()}, {"id": max_id+2, "role": "assistant", "content": content ,  "timestamp": datetime.now().isoformat()}]
     else:
