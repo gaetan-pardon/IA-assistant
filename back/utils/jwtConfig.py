@@ -1,5 +1,5 @@
 from fastapi import Cookie, HTTPException
-from back.model.user import User
+from model.user import User
 from database.database import insertUser, getUserByEmail
 
 from jose import jwt, JWTError

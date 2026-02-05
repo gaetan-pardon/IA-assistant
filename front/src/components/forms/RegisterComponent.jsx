@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { registerUser } from "../../services/UserService";
 import "./forms.css"
 
 
 export function RegistrationForm() {
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
 
     async function handleSubmit() {
@@ -27,6 +28,7 @@ export function RegistrationForm() {
                 return;
             } else {
                 setError(response.message);
+                navigate("/login");
                 return;
             }
         } catch (error) {
