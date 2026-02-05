@@ -4,6 +4,7 @@ import { registerUser } from "../../services/UserService";
 import "./forms.css"
 
 
+
 export function RegistrationForm() {
     const [error, setError] = useState(null);
 

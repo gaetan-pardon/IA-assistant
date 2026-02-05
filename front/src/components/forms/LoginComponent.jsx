@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 import { loginUser } from "../../services/UserService";
 
 
+
 export function LoginForm() {
     const [error, setError] = useState(null);
 
@@ -12,7 +13,6 @@ export function LoginForm() {
         const form = document.getElementById('login-form');
         const email = form.elements['email'].value;
         const password = form.elements['password'].value;
-    
 
         try {
             const response = await loginUser(email, password);
@@ -21,6 +21,8 @@ export function LoginForm() {
                 return;
             } else {
                 setError(response.message);
+                navigate('/home');
+                return;
             }
         } catch (error) {
             setError(error.message || "Network error");
