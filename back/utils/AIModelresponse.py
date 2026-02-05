@@ -1,6 +1,8 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from openai import OpenAI
-import datetime
+from datetime import datetime
+from model.message import Message
+
 
 #from key import key # import the key variable from key.py
 from dotenv import dotenv_values
@@ -72,28 +74,31 @@ def get_ai_response(messages):
 
 def get_ai_response_distant(messages):
         
-    max_id=get_max_id(messages)
+    max_id = get_max_id(messages)
     sendingmessages = []
     for message in messages:
-        sendingmessages.append({"role": message["role"], "content": message["content"]})
+        sendingmessages.append({
+            "role": message["role"],
+            "content": message["content"]
+        })
 
     client = OpenAI(
-    base_url="https://openrouter.ai/api/v1",
-    api_key=TOKEN_OPENROUTER , #key 
+        base_url="https://openrouter.ai/api/v1",
+        api_key=TOKEN_OPENROUTER , #key 
     )
+
     completion = client.chat.completions.create(
-    extra_headers={
-        "HTTP-Referer": "<YOUR_SITE_URL>", # Optional. Site URL for rankings on openrouter.ai.
-        "X-Title": "<YOUR_SITE_NAME>", # Optional. Site title for rankings on openrouter.ai.
-    },
-    model="z-ai/glm-4.5-air:free",
-    messages=sendingmessages
+        extra_headers = {
+            "HTTP-Referer": "<YOUR_SITE_URL>", # Optional. Site URL for rankings on openrouter.ai.
+            "X-Title": "<YOUR_SITE_NAME>", # Optional. Site title for rankings on openrouter.ai.
+        },
+        model="z-ai/glm-4.5-air:free",
+        messages=sendingmessages
     )
-    newmessages = messages + [{"id": max_id+1, "role": "assistant", "content": completion.choices[0].message.content, "timestamp": datetime.datetime.now()}]
-    return newmessages
-    """[
-        {
-        "role": "user",
-        "content": "5+13?"
-        }
-    ]"""
+
+    return Message(
+        id = max_id + 1,
+        role = "assistant",
+        content = completion.choices[0].message.content,
+        timestamp = datetime.now().isoformat()
+    )

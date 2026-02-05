@@ -51,11 +51,11 @@ def getHistory():
 def getHistoryById(id: int):
     return history.get(query.id == id)
 
+def getHistoryByUserId(user_id: int):
+    return history.search(query.user_id == user_id)
+
 def insertHistory(history_item: dict):
     return history.insert(history_item.dict())
-
-def deleteById(id: int):
-    return history.remove(query.id == id)
 
 def addMessageToHistory(history_id: int, message: dict):
     history_item = getHistoryById(history_id)
@@ -65,3 +65,6 @@ def addMessageToHistory(history_id: int, message: dict):
     messages.append(message.dict())
     history.update({"messages": messages}, query.id == history_id)
     return history_item
+
+def deleteById(id: int):
+    return history.remove(query.id == id)

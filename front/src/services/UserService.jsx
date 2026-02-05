@@ -48,6 +48,10 @@ export async function loginUser(email, password) {
     }
 }
 
+/**
+ * Verifies the user's token by making a request to a protected route.
+ * @returns response data
+ */
 export async function verifyToken() {
     try {
         const response = await fetch(`${baseURL}/protected-route`, {
