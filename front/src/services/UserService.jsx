@@ -47,3 +47,16 @@ export async function loginUser(email, password) {
         throw error;
     }
 }
+
+export async function verifyToken() {
+    try {
+        const response = await fetch(`${baseURL}/protected-route`, {
+            method: 'GET',
+            credentials: "include"
+        });
+        return await response.json();
+    } catch (error) {
+        console.error('Error verifying token:', error);
+        throw error;
+    }
+}
