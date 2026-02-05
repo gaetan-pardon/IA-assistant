@@ -1,6 +1,7 @@
 #from fastapi import FastAPI
 
 # import TinyDB from tinydb
+import datetime
 
 
 #qwen/qwen3-4b:free
@@ -32,13 +33,22 @@ from utils.AIModelresponse import get_ai_response, get_ai_response_distant
 
 
 prompt = "Give me a very short introduction to large language model."
-messages = [         {"role": "user", "content": prompt}     ]
+messages2 = [         {"role": "user", "content": prompt}     ]
+
+messagestime = [
+    {"id": 1, "role": "system", "content": "You are a helpful assistant.", "timestamp": datetime.datetime.now()},
+    {"id": 2, "role": "user", "content": "Hello!",  "timestamp": datetime.datetime.now()},
+    {"id": 3, "role": "assistant", "content": "Hi! How can I help you today?",  "timestamp": datetime.datetime.now()},
+    {"id": 4, "role": "user", "content": "What's the weather in france ?",  "timestamp": datetime.datetime.now()},
+]
 
 
-response = get_ai_response(messages)
+response = get_ai_response(messagestime)
 print("Final response:", response)
 
-response = get_ai_response_distant(messages)
+print("/n/n/n response distant /n/n/n")
+
+response = get_ai_response_distant(messagestime)
 print("Final response:", response)
 
 #app = FastAPI()

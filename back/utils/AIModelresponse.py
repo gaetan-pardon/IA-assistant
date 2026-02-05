@@ -1,11 +1,22 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from openai import OpenAI
+import datetime
+
 #from key import key # import the key variable from key.py
 from dotenv import dotenv_values
 
 config = dotenv_values(".env")
 
 TOKEN_OPENROUTER = str(config["TOKEN_OPENROUTER"])
+
+
+def get_max_id(messages):
+    max_id = 0
+    for message in messages:
+        if message["id"] > max_id:
+            max_id = message["id"]
+    return max_id
+
 
 
 model_name = "Qwen/Qwen3-0.6B"
@@ -23,6 +34,7 @@ model = AutoModelForCausalLM.from_pretrained(
     #messages = [         {"role": "user", "content": prompt}     ]
 
 def get_ai_response(messages):
+    max_id=get_max_id(messages)
     # prepare the model input
     text = tokenizer.apply_chat_template(
         messages,
@@ -52,14 +64,19 @@ def get_ai_response(messages):
     #print("thinking content:", thinking_content)
     #print("content:", content)
     if thinking_content != "":
-        newmessages = messages + [{"role": "thinking_assistant", "content": thinking_content}, {"role": "assistant", "content": content}]
+        newmessages = messages + [{"id": max_id+1, "role": "thinking_assistant", "content": thinking_content ,  "timestamp": datetime.datetime.now()}, {"id": max_id+2, "role": "assistant", "content": content ,  "timestamp": datetime.datetime.now()}]
     else:
-        newmessages = messages + [{"role": "assistant", "content": content}]
+        newmessages = messages + [{"id": max_id+1, "role": "assistant", "content": content, "timestamp": datetime.datetime.now()}]
     return newmessages
 
 
 def get_ai_response_distant(messages):
         
+    max_id=get_max_id(messages)
+    sendingmessages = []
+    for message in messages:
+        sendingmessages.append({"role": message["role"], "content": message["content"]})
+
     client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
     api_key=TOKEN_OPENROUTER , #key 
@@ -70,9 +87,9 @@ def get_ai_response_distant(messages):
         "X-Title": "<YOUR_SITE_NAME>", # Optional. Site title for rankings on openrouter.ai.
     },
     model="z-ai/glm-4.5-air:free",
-    messages=messages
+    messages=sendingmessages
     )
-    newmessages = messages + [{"role": "assistant", "content": completion.choices[0].message.content}]
+    newmessages = messages + [{"id": max_id+1, "role": "assistant", "content": completion.choices[0].message.content, "timestamp": datetime.datetime.now()}]
     return newmessages
     """[
         {
