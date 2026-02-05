@@ -45,13 +45,14 @@ async def registerUser(user_request: UserRequest):
 
 @app.post("/login")
 async def loginUser(user_request: UserRequest):
-   user = User(**dict(getUserByEmail(user_request.email)))
-   if user is None:
+   dbUser = getUserByEmail(user_request.email)
+   if dbUser is None:
       return JSONResponse(status_code=404, content={
             "status": 404,
             "message": "User not found",
             "details": "You must create an account first."
          })
+   user = User(**dict(dbUser))
 
    if verify_password(user_request.password, user.hashed_password) == False:
       return JSONResponse(status_code=401, content={ "status": 401, "message": "Login failed", "details": "Wrong password" })
