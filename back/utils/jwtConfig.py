@@ -1,3 +1,7 @@
+from fastapi import Cookie, HTTPException
+from back.model.user import User
+from database.database import insertUser, getUserByEmail
+
 from jose import jwt, JWTError
 from datetime import datetime, timedelta, timezone
 from dotenv import dotenv_values
@@ -41,3 +45,18 @@ def verify_access_token(token: str) -> int:
         raise ValueError("Token invalide ou expiré")
     except Exception as e:
         raise ValueError(f"Erreur lors de la vérification du token : {str(e)}")
+    
+
+    
+async def get_current_user(access_token: str = Cookie(None)):
+    if access_token is None:
+        raise HTTPException(status_code=401, detail="Non authentifié")
+
+    try:
+        email = verify_access_token(access_token)
+        user = getUserByEmail(email)
+        if user is None:
+            raise HTTPException(status_code=401, detail="Utilisateur non trouvé")
+        return User(**dict(user))
+    except ValueError as e:
+        raise HTTPException(status_code=401, detail=str(e))

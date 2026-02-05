@@ -1,6 +1,6 @@
 import json
 from dotenv import dotenv_values
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
@@ -11,7 +11,7 @@ from utils.registrationManagement import hash_password, verify_password
 
 from database.database import insertUser, getUserByEmail
 
-from utils.jwtConfig import create_access_token, verify_access_token
+from utils.jwtConfig import create_access_token, get_current_user, verify_access_token
 
 config = dotenv_values(".env")
 
@@ -161,3 +161,7 @@ async def loginUser(user_request: UserRequest):
       max_age = TOKEN_EXPIRE_MINUTES * 60000
    )
    return response
+
+@app.get("/protected-route")
+async def protected_route(current_user: User = Depends(get_current_user)):
+    return JSONResponse(status_code=200, content={ "status": 200, "message": "Protected route accessed successfully", "data": {"email": current_user.email} })
