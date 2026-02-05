@@ -1,12 +1,13 @@
-
 import { useState, useEffect } from "react";
-import { Navigate } from "react-router-dom";
 import { verifyToken } from "../../services/UserService";
+import { Link, useNavigate } from "react-router-dom"
+
 
 export function ProtectedRoute({ children }) {
     const [isAuthenticated, setIsAuthenticated] = useState(null);
     const [loading, setLoading] = useState(true);
-
+    const navigate = useNavigate();
+    
     useEffect(() => {
         async function checkAuth() {
             try {
@@ -28,7 +29,8 @@ export function ProtectedRoute({ children }) {
     if (loading) {
         return <div>Loading...</div>;
     } else if (!isAuthenticated) {
-        return {/* <Navigate to="/login" /> */};
+        navigate("/login");
+        return null;
     }
     return children;
 }

@@ -35,11 +35,11 @@ def verify_access_token(token: str) -> int:
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
 
-        user_id = payload.get("sub")
-        if user_id is None:
+        email = payload.get("sub")
+        if email is None:
             raise ValueError("Token invalide (sub manquant)")
 
-        return int(user_id)
+        return email
 
     except JWTError:
         raise ValueError("Token invalide ou expiré")

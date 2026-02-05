@@ -17,13 +17,10 @@ export function LoginForm() {
 
         try {
             const response = await loginUser(email, password);
-            if (response.status !== 200) {
-                setError(response.details || "Login failed");
-                return;
-            } else {
-                setError(response.message);
+            if (response.status === 200) {
                 navigate("/chat");
-                return;
+            } else {
+                setError(response.details || response.message || "Login failed");
             }
         } catch (error) {
             setError(error.message || "Network error");
