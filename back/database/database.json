@@ -5,5 +5,382 @@
             "email": "pedrona.guillaume@orange.fr",
             "hashed_password": "$2b$12$/xtAvIkCQ3xZ3Dy32E2hs.BeNEWUaypZhKnnggarVRw4fr47BH9lC"
         }
+    },
+    "history": {
+        "1": {
+            "id": 1,
+            "user_id": 1,
+            "name": "Conversation 1",
+            "messages": []
+        },
+        "2": {
+            "id": 2,
+            "user_id": 1,
+            "name": "Conversation 2",
+            "messages": []
+        },
+        "3": {
+            "id": 3,
+            "user_id": 1,
+            "name": "Conversation 3",
+            "messages": []
+        },
+        "4": {
+            "id": 4,
+            "user_id": 1,
+            "name": "Conversation 4",
+            "messages": []
+        },
+        "5": {
+            "id": 5,
+            "user_id": 1,
+            "name": "Conversation 5",
+            "messages": []
+        },
+        "6": {
+            "id": 6,
+            "user_id": 1,
+            "name": "Conversation 6",
+            "messages": []
+        },
+        "7": {
+            "id": 7,
+            "user_id": 1,
+            "name": "Conversation 7",
+            "messages": []
+        },
+        "8": {
+            "id": 8,
+            "user_id": 1,
+            "name": "Conversation 8",
+            "messages": []
+        },
+        "9": {
+            "id": 9,
+            "user_id": 1,
+            "name": "Conversation 9",
+            "messages": []
+        },
+        "10": {
+            "id": 10,
+            "user_id": 1,
+            "name": "Conversation 10",
+            "messages": []
+        },
+        "11": {
+            "id": 11,
+            "user_id": 1,
+            "name": "Conversation 11",
+            "messages": []
+        },
+        "12": {
+            "id": 12,
+            "user_id": 1,
+            "name": "Conversation 12",
+            "messages": []
+        },
+        "13": {
+            "id": 13,
+            "user_id": 1,
+            "name": "Conversation 13",
+            "messages": []
+        },
+        "14": {
+            "id": 14,
+            "user_id": 1,
+            "name": "Conversation 14",
+            "messages": []
+        },
+        "15": {
+            "id": 15,
+            "user_id": 1,
+            "name": "Conversation 15",
+            "messages": []
+        },
+        "16": {
+            "id": 16,
+            "user_id": 1,
+            "name": "Conversation 16",
+            "messages": []
+        },
+        "17": {
+            "id": 17,
+            "user_id": 1,
+            "name": "Conversation 17",
+            "messages": []
+        },
+        "18": {
+            "id": 18,
+            "user_id": 1,
+            "name": "Conversation 18",
+            "messages": []
+        },
+        "19": {
+            "id": 19,
+            "user_id": 1,
+            "name": "Conversation 19",
+            "messages": []
+        },
+        "20": {
+            "id": 20,
+            "user_id": 1,
+            "name": "Conversation 20",
+            "messages": []
+        },
+        "21": {
+            "id": 21,
+            "user_id": 1,
+            "name": "Conversation 21",
+            "messages": []
+        },
+        "22": {
+            "id": 22,
+            "user_id": 1,
+            "name": "Conversation 22",
+            "messages": []
+        },
+        "23": {
+            "id": 23,
+            "user_id": 1,
+            "name": "Conversation 23",
+            "messages": []
+        },
+        "24": {
+            "id": 24,
+            "user_id": 1,
+            "name": "Conversation 24",
+            "messages": []
+        },
+        "25": {
+            "id": 25,
+            "user_id": 1,
+            "name": "Conversation 25",
+            "messages": []
+        },
+        "26": {
+            "id": 26,
+            "user_id": 1,
+            "name": "Conversation 26",
+            "messages": []
+        },
+        "27": {
+            "id": 27,
+            "user_id": 1,
+            "name": "Conversation 27",
+            "messages": []
+        },
+        "28": {
+            "id": 28,
+            "user_id": 1,
+            "name": "Conversation 28",
+            "messages": []
+        },
+        "29": {
+            "id": 29,
+            "user_id": 1,
+            "name": "Conversation 29",
+            "messages": []
+        },
+        "30": {
+            "id": 30,
+            "user_id": 1,
+            "name": "Conversation 30",
+            "messages": []
+        },
+        "31": {
+            "id": 31,
+            "user_id": 1,
+            "name": "Conversation 31",
+            "messages": []
+        },
+        "32": {
+            "id": 32,
+            "user_id": 1,
+            "name": "Conversation 32",
+            "messages": []
+        },
+        "33": {
+            "id": 33,
+            "user_id": 1,
+            "name": "Conversation 33",
+            "messages": []
+        },
+        "34": {
+            "id": 34,
+            "user_id": 1,
+            "name": "Conversation 34",
+            "messages": []
+        },
+        "35": {
+            "id": 35,
+            "user_id": 1,
+            "name": "Conversation 35",
+            "messages": []
+        },
+        "36": {
+            "id": 36,
+            "user_id": 1,
+            "name": "Conversation 36",
+            "messages": []
+        },
+        "37": {
+            "id": 37,
+            "user_id": 1,
+            "name": "Conversation 37",
+            "messages": []
+        },
+        "38": {
+            "id": 38,
+            "user_id": 1,
+            "name": "Conversation 38",
+            "messages": []
+        },
+        "39": {
+            "id": 39,
+            "user_id": 1,
+            "name": "Conversation 39",
+            "messages": []
+        },
+        "40": {
+            "id": 40,
+            "user_id": 1,
+            "name": "Conversation 40",
+            "messages": []
+        },
+        "41": {
+            "id": 41,
+            "user_id": 1,
+            "name": "Conversation 41",
+            "messages": []
+        },
+        "42": {
+            "id": 42,
+            "user_id": 1,
+            "name": "Conversation 42",
+            "messages": []
+        },
+        "43": {
+            "id": 43,
+            "user_id": 1,
+            "name": "Conversation 43",
+            "messages": []
+        },
+        "44": {
+            "id": 44,
+            "user_id": 1,
+            "name": "Conversation 44",
+            "messages": []
+        },
+        "45": {
+            "id": 45,
+            "user_id": 1,
+            "name": "Conversation 45",
+            "messages": []
+        },
+        "46": {
+            "id": 46,
+            "user_id": 1,
+            "name": "Conversation 46",
+            "messages": []
+        },
+        "47": {
+            "id": 47,
+            "user_id": 1,
+            "name": "Conversation 47",
+            "messages": []
+        },
+        "48": {
+            "id": 48,
+            "user_id": 1,
+            "name": "Conversation 48",
+            "messages": [
+                {
+                    "id": 1,
+                    "role": "user",
+                    "content": "test",
+                    "timestamp": "2026-02-05T22:36:27.729915"
+                },
+                {
+                    "id": 2,
+                    "role": "assistant",
+                    "content": "The user input \"test\" is a simple command to verify system functionality. Here's a concise implementation:\n\n```python\ndef test_function():\n    \"\"\"Basic test function returning a confirmation message.\"\"\"\n    return \"Test successful: System operational.\"\n\nif __name__ == \"__main__\":\n    result = test_function()\n    print(result)\n```\n\n**Output:**\n```\nTest successful: System operational.\n```\n\n**Explanation:**\n1. The `test_function` returns a fixed success message\n2. When run as a script, it executes the main block\n3. Prints confirmation that the test passed\n4. Demonstrates basic Python functionality (function definition, string handling, and execution flow)\n\nThis implementation covers fundamental programming concepts while providing clear verification of system capability.",
+                    "timestamp": "2026-02-05T22:36:37.587156"
+                }
+            ]
+        },
+        "49": {
+            "id": 49,
+            "user_id": 1,
+            "name": "Conversation 49",
+            "messages": []
+        },
+        "50": {
+            "id": 50,
+            "user_id": 1,
+            "name": "Conversation 50",
+            "messages": [
+                {
+                    "id": 1,
+                    "role": "user",
+                    "content": "Qui es-tu ?",
+                    "timestamp": "2026-02-05T22:39:30.668346"
+                },
+                {
+                    "id": 2,
+                    "role": "assistant",
+                    "content": "Je suis GLM, un grand mod\u00e8le de langage d\u00e9velopp\u00e9 par Zhipu AI. \n\nJ'ai \u00e9t\u00e9 entra\u00een\u00e9 sur un large corpus de textes pour comprendre et g\u00e9n\u00e9rer du contenu dans plusieurs langues, dont le fran\u00e7ais. Je suis con\u00e7u pour assister les utilisateurs avec diverses t\u00e2ches allant de la fourniture d'informations \u00e0 la r\u00e9solution de probl\u00e8mes.\n\nY a-t-il quelque chose de sp\u00e9cifique dont vous aimeriez discuter ou dont vous auriez besoin d'aide aujourd'hui ?",
+                    "timestamp": "2026-02-05T22:39:41.605489"
+                }
+            ]
+        },
+        "51": {
+            "id": 51,
+            "user_id": 1,
+            "name": "Conversation 51",
+            "messages": []
+        },
+        "52": {
+            "id": 52,
+            "user_id": 1,
+            "name": "Conversation 52",
+            "messages": [
+                {
+                    "id": 1,
+                    "role": "user",
+                    "content": "Coucou.",
+                    "timestamp": "2026-02-05T22:41:33.838219"
+                },
+                {
+                    "id": 2,
+                    "role": "assistant",
+                    "content": "Coucou ! \ud83d\ude0a Comment puis-je vous aider aujourd'hui ?",
+                    "timestamp": "2026-02-05T22:41:37.779551"
+                },
+                {
+                    "id": 3,
+                    "role": "user",
+                    "content": "Donne-moi mon horoscope.",
+                    "timestamp": "2026-02-05T22:42:26.991170"
+                },
+                {
+                    "id": 4,
+                    "role": "assistant",
+                    "content": "Bien s\u00fbr ! Pour vous donner un horoscope personnalis\u00e9, j'aurai besoin de conna\u00eetre votre **signe astrologique** (B\u00e9lier, Taureau, G\u00e9meaux, Cancer, Lion, Vierge, Balance, Scorpion, Sagittaire, Capricorne, Verseau, ou Poissons).  \n\n\ud83d\udd2e *En attendant, voici une pr\u00e9diction g\u00e9n\u00e9rale pour aujourd'hui :*  \n> *\"Une journ\u00e9e propice aux surprises positives ! Gardez l'esprit ouvert : une rencontre inattendue ou une petite opportunit\u00e9 pourrait se pr\u00e9senter. Les communications seront fluides, profitez-en pour clarifier un point important. \u00c9vitez de pr\u00e9cipiter les d\u00e9cisions : un peu de patience vous r\u00e9servera une belle r\u00e9compense \u00e0 la fin de la journ\u00e9e.\"*  \n\n\ud83c\udf1f **Dites-moi votre signe** (et \u00e9ventuellement votre date de naissance pour plus de pr\u00e9cision), et je vous pr\u00e9parerai un horoscope d\u00e9taill\u00e9 ! \u2b50",
+                    "timestamp": "2026-02-05T22:42:35.736226"
+                },
+                {
+                    "id": 5,
+                    "role": "user",
+                    "content": "Je suis sagittaire.",
+                    "timestamp": "2026-02-05T22:42:44.156660"
+                },
+                {
+                    "id": 6,
+                    "role": "assistant",
+                    "content": "\ud83c\udf1f **Horoscope du jour pour Sagittaire** \ud83c\udf1f  \n\n**\u00c9nergie \ud83d\udd25** : Mars vous booste aujourd'hui ! Votre instinct d'aventure est \u00e0 son comble. Sautez sur l'occasion de sortir de votre zone de confort, m\u00eame si c\u2019est juste pour essayer un nouveau restaurant ou discuter avec un inconnu.  \n\n**Amour \ud83d\udc98** : Vos fl\u00e8ches d'honn\u00eatet\u00e9 peuvent blesser... Attention \u00e0 la franchise brute ! Privil\u00e9giez l'humour et la bienveillance. Les c\u00e9libataires : un sourire \u00e9chang\u00e9 dans une file d\u2019attente pourrait cacher une surprise.  \n\n**Travail \ud83d\udcbc** : Votre enthousiasme est contagieux, mais attention \u00e0 ne pas vous \u00e9parpiller. Concentrez-vous sur UNE priorit\u00e9 aujourd\u2019hui. Les discussions diplomatiques sont favoris\u00e9es \u2013 profitez-en pour n\u00e9gocier !  \n\n**Bon plan \ud83c\udf08** : Portez une couleur vive (jaune, orange ou turquoise) pour attirer la chance. Et si le c\u0153ur vous en dit, offrez un petit cadeau \u00e0 quelqu\u2019un : les Sagittaire adorent donner !  \n\n*\u00ab L\u2019aventure appelle ceux qui ont le courage de l\u2019entendre. \u00bb* \u2728  \n\nSouhaitez-vous un conseil plus d\u00e9taill\u00e9 sur un domaine particulier ? \ud83d\udcac",
+                    "timestamp": "2026-02-05T22:43:03.688617"
+                }
+            ]
+        }
     }
 }

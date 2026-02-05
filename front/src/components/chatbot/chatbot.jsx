@@ -1,35 +1,56 @@
 import "./chatbot.css"
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { createHistory, addMessageToHistory } from "../../services/HistoryService";
 
 
 
 export default function ChatBot() {
-        const [isAuthenticated, setIsAuthenticated] = useState(null);
-        const [loading, setLoading] = useState(true);
-        const [ history, setHistory] = useState([]);
+        const [ isAuthenticated, setIsAuthenticated ] = useState(null);
+        const [ loading, setLoading ] = useState(true);
+        const [ currentHistory, setCurrentHistory ] = useState([]);
+        const [ messages, setMessages ] = useState([]);
+        const [ inputText, setInputText ] = useState("");
 
         const navigate = useNavigate();
         
         useEffect(() => {
-            async function getUserHistories() {
-                try {
-                    const response = await fetchHistory();
-                    if (response.status === 200) {
-                        setIsAuthenticated(true);
-                        setHistory(response.data);
-                    } else {
-                        setIsAuthenticated(false);
-                    }
-                } catch (error) {
+            createHistory().then((response) => {
+                if (response.status === 201) {
+                    setCurrentHistory(response.data);
+                    setIsAuthenticated(true);
+                } else {
                     setIsAuthenticated(false);
-                } finally {
-                    setLoading(false);
-                }  
-            }
-            getUserHistories();
+                }
+            }).catch((error) => {
+                console.error("Error creating history:", error);
+            }).finally(() => {
+                setLoading(false);
+            });
         }, []);
     
+        const handleSendMessage = () => {
+            if (inputText.trim()) {
+                setMessages(prev => [...prev, { text: inputText, sender: "user" }]);
+                setInputText("");
+                addMessageToHistory(currentHistory.id, inputText).then((response) => {
+                    if (response.status === 200 && response.data?.messages) {
+                        const formattedMessages = response.data.messages.map((msg) => ({
+                            text: msg.content,
+                            sender: msg.role === "assistant" ? "bot" : "user"
+                        }));
+                        setMessages(formattedMessages);
+                    }
+                });
+            }
+        };
+
+        const handleKeyPress = (e) => {
+            if (e.key === "Enter") {
+                handleSendMessage();
+            }
+        };
+
         if (loading) {
             return <div>Loading...</div>;
         } else if (!isAuthenticated) {
@@ -38,28 +59,28 @@ export default function ChatBot() {
         }
 
     return (
-        <div className="chatbot-component">
-            <h1>ChatBot</h1>
-            <button onClick={async () => {
-                const response = await createHistory(); /*createHistory*/
-            } } >New conversation</button>
-            <ul>
-                {history.map(item => (
-                    <li><h2>{item.name}</h2>
-                    {item.messages.map(message => (
-                    <li key={message.id}>{message.content}</li> ))}
-                    <form onSubmit={async (e) => {
-                        e.preventDefault();
-                        const formData = new FormData(e.target);
-                        const content = formData.get("content");
-                        await addMessageToHistory(item.id, content);
-                    }}>
-                        <input type="text" name="content" />
-                        <button type="submit">Send</button>
-                    </form>
-                    </li>
+        <section className="chat">
+            <div className="messages-container">
+                {messages.map((message, index) => (
+                    <div key={index} className={`message ${message.sender}`}>
+                        {message.text}
+                    </div>
                 ))}
-            </ul>
-        </div>  
+            </div>
+            
+            <div className="input-container">
+                <input
+                    type="text"
+                    className="prompt-input"
+                    placeholder="Écrivez votre message..."
+                    value={inputText}
+                    onChange={(e) => setInputText(e.target.value)}
+                    onKeyUp={handleKeyPress}
+                />
+                <button className="send-button" onClick={handleSendMessage}>
+                    Envoyer
+                </button>
+            </div>
+        </section>
     )
 }

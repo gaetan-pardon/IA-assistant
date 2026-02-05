@@ -1,6 +1,7 @@
 from email.policy import default
 import json
 from fastapi import FastAPI, HTTPException, Request
+from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
@@ -49,6 +50,17 @@ async def json_decode_exception_handler(request: Request, exc: json.JSONDecodeEr
          "status": 400,
          "message": getattr(exc, "detail", "JSON decode error"),
          "details": exc.errors() if hasattr(exc, "errors") else None
+      }
+   )
+
+@app.exception_handler(RequestValidationError)
+async def bad_request_exception_handler(request: Request, exc: RequestValidationError):
+   return JSONResponse(
+      status_code=400,
+      content={
+         "status": 400,
+         "message": "Bad Request",
+         "details": exc.errors()
       }
    )
 

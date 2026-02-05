@@ -66,9 +66,9 @@ def get_ai_response(messages):
     #print("thinking content:", thinking_content)
     #print("content:", content)
     if thinking_content != "":
-        newmessages = messages + [{"id": max_id+1, "role": "thinking_assistant", "content": thinking_content ,  "timestamp": datetime.datetime.now()}, {"id": max_id+2, "role": "assistant", "content": content ,  "timestamp": datetime.datetime.now()}]
+        newmessages = messages + [{"id": max_id+1, "role": "thinking_assistant", "content": thinking_content ,  "timestamp": datetime.now().isoformat()}, {"id": max_id+2, "role": "assistant", "content": content ,  "timestamp": datetime.now().isoformat()}]
     else:
-        newmessages = messages + [{"id": max_id+1, "role": "assistant", "content": content, "timestamp": datetime.datetime.now()}]
+        newmessages = messages + [{"id": max_id+1, "role": "assistant", "content": content, "timestamp": datetime.now().isoformat()}]
     return newmessages
 
 

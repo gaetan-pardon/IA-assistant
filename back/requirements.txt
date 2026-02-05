@@ -3,7 +3,11 @@ transformers
 accelerate
 python-jose
 pydantic
+pydantic[email]
+passlib
+bcrypt
 fastapi
 uvicorn
 dotenv
 openAI
+tinydb

@@ -12,6 +12,8 @@ from database.database import insertUser, getUserByEmail
 from utils.jwtConfig import create_access_token, get_current_user, verify_access_token
 from controller.ControllerConfig import app
 
+import controller.HistoryController
+
 config = dotenv_values(".env")
 TOKEN_EXPIRE_MINUTES = int(config["TOKEN_EXPIRE_MINUTES"])
 
