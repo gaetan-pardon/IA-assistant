@@ -1,7 +1,7 @@
 from tinydb import TinyDB, Query
 
 
-db = TinyDB("database/database.json")
+db = TinyDB("database/database.json", indent=4)
 users = db.table("users")
 history = db.table("history")
 query = Query()
