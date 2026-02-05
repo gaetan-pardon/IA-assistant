@@ -13,10 +13,9 @@ from database.database import insertUser, getUserByEmail
 
 from utils.jwtConfig import create_access_token, get_current_user, verify_access_token
 
+
 config = dotenv_values(".env")
-
 TOKEN_EXPIRE_MINUTES = int(config["TOKEN_EXPIRE_MINUTES"])
-
 
 app = FastAPI()
 

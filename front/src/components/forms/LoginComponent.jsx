@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { loginUser } from "../../services/UserService";
 
 
+
 export function LoginForm() {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
@@ -13,7 +14,6 @@ export function LoginForm() {
         const form = document.getElementById('login-form');
         const email = form.elements['email'].value;
         const password = form.elements['password'].value;
-    
 
         try {
             const response = await loginUser(email, password);
