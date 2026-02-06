@@ -18,6 +18,25 @@ export async function fetchHistory() {
     }
 }
 
+/**
+ * Fetches a specific history by its ID.
+ * @param {*} history_id 
+ * @returns 
+ */
+export async function fetchHistoryById(history_id) {
+    try {
+        const response = await fetch(`${baseURL}/history/${history_id}`, {
+            method: 'GET',
+            credentials: "include"
+        });
+        const returned_response = await response.json();
+        return returned_response;
+    } catch (error) {
+        console.error('Error fetching history by ID:', error);
+        throw error;
+    }
+}
+
 export async function createHistory() {
     try {
         const response = await fetch(`${baseURL}/history`, {

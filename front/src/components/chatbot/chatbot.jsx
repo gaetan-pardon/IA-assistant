@@ -2,7 +2,7 @@ import "./chatbot.css"
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { useNavigate } from "react-router-dom"
-import { createHistory, addMessageToHistory, fetchHistory } from "../../services/HistoryService";
+import { createHistory, addMessageToHistory, fetchHistory, fetchHistoryById } from "../../services/HistoryService";
 
 
 
@@ -56,10 +56,36 @@ export default function ChatBot() {
                             sender: msg.role === "assistant" ? "bot" : "user"
                         }));
                         setMessages(formattedMessages);
-                        setLoadingAIResponse(false);
                     }
+                }).catch((error) => {
+                    console.error("Error sending message:", error);
+                }).finally(() => {
+                    setLoadingAIResponse(false);
                 });
             }
+        };
+
+        const changeHistory = (history) => {
+            setCurrentHistory(history);
+            const currentMessages = fetchHistoryById(history.id).then((response) => {
+                if (response.status === 200 && response.data?.messages) {
+                    if (!Array.isArray(response.data.messages)) {
+                        setMessages([]);
+                        return;
+                    }
+                    if(response.data.messages.length === 0)
+                    {
+                        setMessages([]);
+                        return;
+                    }
+                    setMessages(response.data.messages.map((msg) => ({
+                        text: msg.content,
+                        sender: msg.role === "assistant" ? "bot" : "user"
+                    })));
+                }
+            }).catch((error) => {
+                console.error("Error fetching history by ID:", error);
+            });
         };
 
         const handleKeyPress = (e) => {
@@ -70,7 +96,8 @@ export default function ChatBot() {
 
         if (loading) {
             return <div>Loading...</div>;
-        } else if (!isAuthenticated) {
+        }
+        if (!isAuthenticated) {
             navigate("/login");
             return null;
         }
@@ -80,18 +107,18 @@ export default function ChatBot() {
             <section className="chats-list">
                 <h3>Historiques</h3>
                 {histories && histories.map((history) => (
-                    <div key={history.id} className="chat-item" onClick={() => setCurrentHistory(history)}>
+                    <button key={history.id} className="chat-item" onClick={() => changeHistory(history)} disabled={currentHistory.id === history.id || loadingAIResponse}>
                         <span>{history.name}</span>
-                    </div>
+                    </button>
                 ))}
             </section>
             <section className="chat">
                 <div className="messages-container">
-                    {messages.map((message, index) => (
+                    {messages.length > 0 ? messages.map((message, index) => (
                         <div key={index} className={`message ${message.sender}`}>
                             <ReactMarkdown>{message.text}</ReactMarkdown>
                         </div>
-                    ))}
+                )) : <div className="no-messages">Aucun message pour le moment. Commencez la conversation !</div>}
                 </div>
                 
                 <div className="input-container">

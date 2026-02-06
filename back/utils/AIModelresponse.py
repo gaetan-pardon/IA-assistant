@@ -19,7 +19,7 @@ def get_max_id(messages):
             max_id = message["id"]
     return max_id
 
-
+""" 
 
 model_name = "Qwen/Qwen3-0.6B"
 
@@ -69,7 +69,7 @@ def get_ai_response(messages):
         newmessages = messages + [{"id": max_id+1, "role": "assistant", "content": content, "timestamp": datetime.now().isoformat()}]
     return newmessages
 
-
+ """
 def get_ai_response_distant(messages):
         
     max_id = get_max_id(messages)

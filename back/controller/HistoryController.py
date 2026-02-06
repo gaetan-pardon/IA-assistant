@@ -29,6 +29,30 @@ async def getHistoryByUserIdRoute(current_user: User = Depends(get_current_user)
         "data": id_names
     })
 
+@app.get("/history/{history_id}")
+async def getHistoryByIdRoute(history_id: int, current_user: User = Depends(get_current_user)):
+    history_item = getHistoryById(history_id)
+    if history_item is None:
+        return JSONResponse(status_code=404, content={
+            "status": 404,
+            "message": "History item not found",
+            "details": f"No history item found with id {history_id}"
+        })
+
+    if history_item["user_id"] != current_user.id:
+        return JSONResponse(status_code=403, content={
+            "status": 403,
+            "message": "Forbidden",
+            "details": "You do not have permission to access this history item"
+        })
+
+    print(history_item)
+    return JSONResponse(status_code=200, content={
+        "status": 200,
+        "message": "History item retrieved successfully",
+        "data": history_item
+    })
+
 @app.post("/history")
 async def createHistoryRoute(current_user: User = Depends(get_current_user)):
     next_id = get_next_history_id()
