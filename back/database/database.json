@@ -7,74 +7,6 @@
         }
     },
     "history": {
-        "1": {
-            "id": 1,
-            "user_id": 1,
-            "name": "Conversation 1",
-            "messages": []
-        },
-        "2": {
-            "id": 2,
-            "user_id": 1,
-            "name": "Conversation 2",
-            "messages": [
-                {
-                    "id": 1,
-                    "role": "user",
-                    "content": "Donne-moi mon horoscope. Je suis sagittaire.",
-                    "timestamp": "2026-02-06T00:05:45.247080"
-                },
-                {
-                    "id": 2,
-                    "role": "assistant",
-                    "content": "Voici votre horoscope pour le mois en cours, con\u00e7u sp\u00e9cifiquement pour un Sagittaire \ud83c\udff9 :\n\n### \ud83c\udf1f **\u00c9nergie Globale**  \nCe mois, Jupiter, votre plan\u00e8te ma\u00eetresse, booste votre confiance et votre d\u00e9sir d'aventure. Un vent de libert\u00e9 souffle sur votre vie, incitant \u00e0 explorer de nouveaux horizons, que ce soit sur le plan professionnel, amoureux ou spirituel. Gardez cependant un \u0153il sur les d\u00e9tails : Jupiter peut parfois vous rendre un peu n\u00e9gligent !\n\n### \ud83d\udcbc **Carri\u00e8re & Finances**  \nOpportunit\u00e9 inattendue sur le travail : une collaboration internationale ou un projet ambitieux pourrait se pr\u00e9senter. Votre enthousiasme est votre atout principal, mais n'oubliez pas de n\u00e9gocier les termes avec pragmatisme. En finances, \u00e9vitez les d\u00e9pulsions impulsives li\u00e9es \u00e0 votre soif de nouveaut\u00e9.\n\n### \u2764\ufe0f **Amour & Relations**  \nLes c\u00e9libataires : un\u9082\u9005 fortuit lors d'un voyage ou d'une formation pourrait changer la donne. Les Sagittaires en couple : communiquez franchement sur vos envies d'\u00e9vasion. Votre partenaire pourrait avoir besoin de davantage de stabilit\u00e9, trouvez un juste milieu entre l'aventure et le confort partag\u00e9.\n\n### \ud83e\udde0 **Sant\u00e9 & Bien-\u00eatre**  \nVotre \u00e9nergie est au rendez-vous, mais attention \u00e0 la dispersion. Pratiquez des activit\u00e9s qui ancrent votre corps (yoga, randonn\u00e9e) pour canaliser votre esprit explorateur. Surveillez le sommeil : votre curiosit\u00e9 mentale peut parfois perturber le repos.\n\n### \ud83d\udd2e **Conseil Cl\u00e9 du Mois**  \n*\"L'optimisme est votre superpouvoir, mais la pr\u00e9caution votre bouclier. N'oubliez pas que pour voler haut, il faut parfois atterrir pour recharger les ailes.\"*\n\n---\n\n### \ud83c\udfaf **Petite Pr\u00e9diction Sp\u00e9ciale**  \nUne d\u00e9cision prise autour du **15** pourrait ouvrir une porte inattendue vers une passion oubli\u00e9e. Suivez cette piste sans crainte !\n\n---\n\nSouhaitez-vous un horoscope plus personnalis\u00e9 (avec date/lieu de naissance) ou une focus sur un domaine particulier (amour, travail, etc.) ? \ud83c\udf20",
-                    "timestamp": "2026-02-06T00:06:08.078952"
-                }
-            ]
-        },
-        "3": {
-            "id": 3,
-            "user_id": 1,
-            "name": "Conversation 3",
-            "messages": []
-        },
-        "4": {
-            "id": 4,
-            "user_id": 1,
-            "name": "Conversation 4",
-            "messages": [
-                {
-                    "id": 1,
-                    "role": "user",
-                    "content": "Quel jour sommes-nous ?",
-                    "timestamp": "2026-02-06T09:41:50.970739"
-                },
-                {
-                    "id": 2,
-                    "role": "assistant",
-                    "content": "Nous sommes le **9 mai 2024**. \ud83d\ude0a  \nSi vous avez besoin de plus d'informations ou d'aide pour la suite, n'h\u00e9sitez pas !",
-                    "timestamp": "2026-02-06T09:42:08.067333"
-                },
-                {
-                    "id": 3,
-                    "role": "user",
-                    "content": "Non merci.",
-                    "timestamp": "2026-02-06T09:42:50.937451"
-                },
-                {
-                    "id": 4,
-                    "role": "assistant",
-                    "content": "Pas de souci ! \ud83d\ude0a Si vous avez besoin d\u2019autre chose, n\u2019h\u00e9sitez pas \u00e0 demander \u2014 je suis l\u00e0 pour vous aider !",
-                    "timestamp": "2026-02-06T09:43:23.449528"
-                }
-            ]
-        },
-        "5": {
-            "id": 5,
-            "user_id": 1,
-            "name": "Conversation 5",
-            "messages": []
-        },
         "6": {
             "id": 6,
             "user_id": 1,
@@ -713,73 +645,6 @@
             "name": "Conversation 82",
             "messages": []
         },
-        "83": {
-            "id": 83,
-            "user_id": 1,
-            "name": "Conversation 83",
-            "messages": [
-                {
-                    "id": 1,
-                    "role": "user",
-                    "content": "Je m'appelle Guillaume.",
-                    "timestamp": "2026-02-06T10:36:34.680187"
-                },
-                {
-                    "id": 2,
-                    "role": "assistant",
-                    "content": "Bonjour Guillaume ! Enchant\u00e9 de faire votre connaissance.\n\nComment puis-je vous aider aujourd'hui ?",
-                    "timestamp": "2026-02-06T10:37:00.166223"
-                },
-                {
-                    "id": 3,
-                    "role": "user",
-                    "content": "Comment est-ce que je m'appelle ?",
-                    "timestamp": "2026-02-06T10:37:09.282293"
-                },
-                {
-                    "id": 4,
-                    "role": "assistant",
-                    "content": "Vous vous appelez Guillaume.",
-                    "timestamp": "2026-02-06T10:37:26.419922"
-                },
-                {
-                    "id": 5,
-                    "role": "user",
-                    "content": "Combient fait 2+2 ?",
-                    "timestamp": "2026-02-06T10:37:43.431189"
-                },
-                {
-                    "id": 6,
-                    "role": "assistant",
-                    "content": "La r\u00e9ponse \u00e0 **2 + 2** est **4**. \ud83d\ude0a  \n\nBesoin d'aide pour d'autres calculs ?",
-                    "timestamp": "2026-02-06T10:38:02.858942"
-                },
-                {
-                    "id": 7,
-                    "role": "user",
-                    "content": "Comment je m'apppelle ?",
-                    "timestamp": "2026-02-06T10:39:16.034458"
-                },
-                {
-                    "id": 8,
-                    "role": "assistant",
-                    "content": "Vous vous appelez **Guillaume** ! \ud83d\ude0a  \n(Juste pour info, vous aviez \u00e9crit \"apppelle\" avec un p en trop, mais je comprends tr\u00e8s bien votre question !)  \n\nBesoin d'autre chose ?",
-                    "timestamp": "2026-02-06T10:39:34.445449"
-                },
-                {
-                    "id": 9,
-                    "role": "user",
-                    "content": "Non merci, je suis satisfait de ton travail.",
-                    "timestamp": "2026-02-06T10:39:53.483976"
-                },
-                {
-                    "id": 10,
-                    "role": "assistant",
-                    "content": "Merci beaucoup Guillaume ! \ud83d\ude0a  \nJe suis ravi d\u2019avoir pu vous aider. N\u2019h\u00e9sitez pas si vous avez d\u2019autres questions \u00e0 l\u2019avenir !",
-                    "timestamp": "2026-02-06T10:40:10.473545"
-                }
-            ]
-        },
         "84": {
             "id": 84,
             "user_id": 1,
@@ -1280,6 +1145,109 @@
             "user_id": 1,
             "name": "Conversation 138",
             "messages": []
+        },
+        "139": {
+            "id": 139,
+            "user_id": 1,
+            "name": "Conversation 139",
+            "messages": []
+        },
+        "140": {
+            "id": 140,
+            "user_id": 1,
+            "name": "Conversation 140",
+            "messages": []
+        },
+        "141": {
+            "id": 141,
+            "user_id": 1,
+            "name": "Conversation 141",
+            "messages": []
+        },
+        "142": {
+            "id": 142,
+            "user_id": 1,
+            "name": "Conversation 142",
+            "messages": []
+        },
+        "143": {
+            "id": 143,
+            "user_id": 1,
+            "name": "Conversation 143",
+            "messages": []
+        },
+        "144": {
+            "id": 144,
+            "user_id": 1,
+            "name": "Conversation 144",
+            "messages": []
+        },
+        "145": {
+            "id": 145,
+            "user_id": 1,
+            "name": "Conversation 145",
+            "messages": []
+        },
+        "146": {
+            "id": 146,
+            "user_id": 1,
+            "name": "Conversation 146",
+            "messages": []
+        },
+        "147": {
+            "id": 147,
+            "user_id": 1,
+            "name": "Conversation 147",
+            "messages": []
+        },
+        "148": {
+            "id": 148,
+            "user_id": 1,
+            "name": "Conversation 148",
+            "messages": []
+        },
+        "149": {
+            "id": 149,
+            "user_id": 1,
+            "name": "Conversation 149",
+            "messages": []
+        },
+        "150": {
+            "id": 150,
+            "user_id": 1,
+            "name": "Conversation 150",
+            "messages": []
+        },
+        "151": {
+            "id": 151,
+            "user_id": 1,
+            "name": "Conversation 151",
+            "messages": []
+        },
+        "152": {
+            "id": 152,
+            "user_id": 1,
+            "name": "Conversation 152",
+            "messages": []
+        },
+        "153": {
+            "id": 153,
+            "user_id": 1,
+            "name": "Conversation 153",
+            "messages": [
+                {
+                    "id": 1,
+                    "role": "user",
+                    "content": "Bonjour",
+                    "timestamp": "2026-02-06T11:11:38.145008"
+                },
+                {
+                    "id": 2,
+                    "role": "assistant",
+                    "content": "Bonjour ! \ud83d\ude0a Comment puis-je vous aider aujourd'hui ?",
+                    "timestamp": "2026-02-06T11:11:43.674254"
+                }
+            ]
         }
     }
 }

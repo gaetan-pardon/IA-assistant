@@ -37,6 +37,10 @@ export async function fetchHistoryById(history_id) {
     }
 }
 
+/**
+ * Creates a new history for the logged-in user.
+ * @returns response data
+ */
 export async function createHistory() {
     try {
         const response = await fetch(`${baseURL}/history`, {
@@ -51,6 +55,12 @@ export async function createHistory() {
     }
 }
 
+/**
+ * Adds a message to a specific history.
+ * @param {*} history_id 
+ * @param {*} content 
+ * @returns response data
+ */
 export async function addMessageToHistory(history_id, content) {
     try {
         const body = JSON.stringify({ message: content });
@@ -68,4 +78,23 @@ export async function addMessageToHistory(history_id, content) {
         console.error('Error adding message to history:', error);
         throw error;
     }
+}
+
+/**
+ * Deletes a specific history by its ID.
+ * @param {*} history_id 
+ * @returns response data
+ */
+export async function deleteHistoryService(history_id) {
+    try {
+        const response = await fetch(`${baseURL}/history/${history_id}`, {
+            method: 'DELETE',
+            credentials: "include"
+        });
+        const returned_response = await response.json();
+        return returned_response;
+    } catch (error) {
+        console.error('Error deleting history:', error);
+        throw error;
+    };
 }

@@ -2,7 +2,7 @@ import "./chatbot.css"
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { useNavigate } from "react-router-dom"
-import { createHistory, addMessageToHistory, fetchHistory, fetchHistoryById } from "../../services/HistoryService";
+import { createHistory, addMessageToHistory, fetchHistory, fetchHistoryById, deleteHistoryService } from "../../services/HistoryService";
 
 
 
@@ -22,6 +22,7 @@ export default function ChatBot() {
                 createHistory().then((response) => {
                     if (response.status === 201) {
                         setCurrentHistory(response.data);
+                        setMessages([]);
                         setIsAuthenticated(true);
                     } else {
                         setIsAuthenticated(false);
@@ -67,7 +68,7 @@ export default function ChatBot() {
 
         const changeHistory = (history) => {
             setCurrentHistory(history);
-            const currentMessages = fetchHistoryById(history.id).then((response) => {
+            fetchHistoryById(history.id).then((response) => {
                 if (response.status === 200 && response.data?.messages) {
                     if (!Array.isArray(response.data.messages)) {
                         setMessages([]);
@@ -94,6 +95,35 @@ export default function ChatBot() {
             }
         };
 
+        const deleteHistory = (historyId) => {
+            deleteHistoryService(historyId).then((response) => {
+                if (response.status === 200) {
+                    fetchHistory().then((response) => {
+                        if (response.status === 200) {
+                            setHistories(response.data);
+                        }
+                    }).catch(() => {
+                        setHistories([]);
+                    });
+                    if (currentHistory.id === historyId) {
+                       createHistory().then((response) => {
+                            if (response.status === 201) {
+                                setCurrentHistory(response.data);
+                                setMessages([]);
+                                setIsAuthenticated(true);
+                            } else {
+                                setIsAuthenticated(false);
+                            }
+                        }).catch(() => {
+                            setIsAuthenticated(false);
+                        });
+                    }
+                }
+            }).catch((error) => {
+                console.error("Error deleting history:", error);
+            });
+        };
+
         if (loading) {
             return <div>Loading...</div>;
         }
@@ -107,9 +137,12 @@ export default function ChatBot() {
             <section className="chats-list">
                 <h3>Historiques</h3>
                 {histories && histories.map((history) => (
-                    <button key={history.id} className="chat-item" onClick={() => changeHistory(history)} disabled={currentHistory.id === history.id || loadingAIResponse}>
-                        <span>{history.name}</span>
-                    </button>
+                    <div key={history.id} className="chat-item-container">
+                        <button key={history.id} className="chat-item" onClick={() => changeHistory(history)} disabled={currentHistory.id === history.id || loadingAIResponse}>
+                            <span>{history.name}</span>
+                        </button>
+                        <button onClick={() => deleteHistory(history.id)}>🗑</button>
+                    </div>
                 ))}
             </section>
             <section className="chat">

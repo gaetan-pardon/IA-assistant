@@ -2,7 +2,7 @@ from datetime import datetime
 from fastapi import Depends
 from request.NewMessageRequest import NewMessageRequest
 from utils.AIModelresponse import get_ai_response_distant, get_max_id
-from database.database import getHistoryById, insertHistory, getHistoryByUserId, get_next_history_id, addMessageToHistory
+from database.database import deleteById, getHistoryById, insertHistory, getHistoryByUserId, get_next_history_id, addMessageToHistory
 from model.history import History
 from model.user import User
 from controller.ControllerConfig import app
@@ -133,4 +133,29 @@ async def addMessageToHistoryRoute(history_id: int, newMessageRequest: NewMessag
         "status": 200,
         "message": "Message added to history item successfully",
         "data": final_history
+    })
+
+@app.delete("/history/{history_id}")
+async def deleteHistoryRoute(history_id: int, current_user: User = Depends(get_current_user)):
+    history_item = getHistoryById(history_id)
+
+    if history_item is None:
+        return JSONResponse(status_code=404, content={
+            "status": 404,
+            "message": "History item not found",
+            "details": f"No history item found with id {history_id}"
+        })
+
+    if history_item["user_id"] != current_user.id:
+        return JSONResponse(status_code=403, content={
+            "status": 403,
+            "message": "Forbidden",
+            "details": "You do not have permission to delete this history item"
+        })
+
+    deleteById(history_id)
+    return JSONResponse(status_code=200, content={
+        "status": 200,
+        "message": "History item deleted successfully",
+        "details": f"History item with id {history_id} has been deleted"
     })
