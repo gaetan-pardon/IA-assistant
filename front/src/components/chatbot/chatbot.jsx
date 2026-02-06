@@ -15,6 +15,7 @@ export default function ChatBot() {
             async function getUserHistories() {
                 try {
                     const response = await fetchHistory();
+                    console.log("Fetch history response:", response);
                     if (response.status === 200) {
                         setIsAuthenticated(true);
                         setHistory(response.data);
@@ -45,9 +46,9 @@ export default function ChatBot() {
                 const response = await createHistory(); /*createHistory*/
             } } >New conversation</button>
             <ul>
-                {history && history.map(item => (
+                {Array.isArray(history) && history.map(item => (
                     <li><h2>{item.name}</h2>
-                    {item.messages && item.messages.map(message => (
+                    {Array.isArray(item.messages) && item.messages.map(message => (
                     <li key={message.id}>{message.content}</li> ))}
                     <form onSubmit={async (e) => {
                         e.preventDefault();

@@ -9,6 +9,11 @@
             "id": 2,
             "email": "t@t.fr",
             "hashed_password": "$2b$12$Icodkwhw7N8ghG51bZ0QkehrBVj3pm7SRYjHSTziS9Pm7BLPyCNw2"
+        },
+        "3": {
+            "id": 3,
+            "email": "a@a.fr",
+            "hashed_password": "$2b$12$LfBVbtJvzRzCtugLQRR.c.BVTPfl/PLh6w516TJAuhm9TVeeqYuui"
         }
     }
 }
