@@ -47,3 +47,8 @@ Le site sera accessible sur le port 5173 à l'adresse http://localhost:5173.
 - POST `/history`
 - POST `/history/{history_id}/message`
 - DELETE `/history/{history_id}`
+
+## Versions du projet  
+  
+Branche ```main``` : Chat Bot avec seulement les fonctionnalités de base et celles bonus (liste des conversations, suppression, création, passage d'une conversation à l'autre)  
+Branche ```sqlalchemy``` : Tentative de conversion de la BDD avec Sqlalchemy
