@@ -7,18 +7,6 @@
         }
     },
     "history": {
-        "6": {
-            "id": 6,
-            "user_id": 1,
-            "name": "Conversation 6",
-            "messages": []
-        },
-        "7": {
-            "id": 7,
-            "user_id": 1,
-            "name": "Conversation 7",
-            "messages": []
-        },
         "8": {
             "id": 8,
             "user_id": 1,
@@ -707,12 +695,6 @@
                 }
             ]
         },
-        "87": {
-            "id": 87,
-            "user_id": 1,
-            "name": "Conversation 87",
-            "messages": []
-        },
         "88": {
             "id": 88,
             "user_id": 1,
@@ -1188,12 +1170,6 @@
             "name": "Conversation 145",
             "messages": []
         },
-        "146": {
-            "id": 146,
-            "user_id": 1,
-            "name": "Conversation 146",
-            "messages": []
-        },
         "147": {
             "id": 147,
             "user_id": 1,
@@ -1248,6 +1224,54 @@
                     "timestamp": "2026-02-06T11:11:43.674254"
                 }
             ]
+        },
+        "154": {
+            "id": 154,
+            "user_id": 1,
+            "name": "Conversation 154",
+            "messages": []
+        },
+        "155": {
+            "id": 155,
+            "user_id": 1,
+            "name": "Conversation 155",
+            "messages": []
+        },
+        "156": {
+            "id": 156,
+            "user_id": 1,
+            "name": "Conversation 156",
+            "messages": []
+        },
+        "157": {
+            "id": 157,
+            "user_id": 1,
+            "name": "Conversation 157",
+            "messages": []
+        },
+        "158": {
+            "id": 158,
+            "user_id": 1,
+            "name": "Conversation 158",
+            "messages": []
+        },
+        "159": {
+            "id": 159,
+            "user_id": 1,
+            "name": "Conversation 159",
+            "messages": []
+        },
+        "160": {
+            "id": 160,
+            "user_id": 1,
+            "name": "Conversation 160",
+            "messages": []
+        },
+        "161": {
+            "id": 161,
+            "user_id": 1,
+            "name": "Conversation 161",
+            "messages": []
         }
     }
 }
