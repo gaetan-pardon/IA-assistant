@@ -17,28 +17,16 @@ export default function ChatBot() {
 
         const navigate = useNavigate();
         
-        useEffect(() => {   
-            Promise.all([
-                createHistory().then((response) => {
-                    if (response.status === 201) {
-                        setCurrentHistory(response.data);
-                        setMessages([]);
-                        setIsAuthenticated(true);
-                    } else {
-                        setIsAuthenticated(false);
-                    }
-                }).catch(() => {
-                    setIsAuthenticated(false);
-                }),
-                
-                fetchHistory().then((response) => {
-                    if (response.status === 200) {
-                        setHistories(response.data);
-                    }
-                }).catch(() => {
-                    setHistories([]);
-                })
-            ]).finally(() => {
+        useEffect(() => {
+            fetchHistory().then((response) => {
+                if (response.status === 200) {
+                    setHistories(response.data);
+                    setIsAuthenticated(true);
+                }
+            }).catch(() => {
+                setHistories([]);
+                setIsAuthenticated(false);
+            }).finally(() => {
                 setLoading(false);
             });
         }, []);
@@ -130,6 +118,24 @@ export default function ChatBot() {
     return (
         <div className="chats-container">
             <section className="chats-list">
+                <button className="new-chat-button" disabled={loadingAIResponse} onClick={() => {
+                    createHistory().then((response) => {
+                        if (response.status === 201) {
+                            setCurrentHistory(response.data);
+                            setMessages([]);
+                            setHistories(prev => [...prev, response.data]);
+                        }
+                    }).catch((error) => {
+                        console.error("Error creating history:", error);
+                    });
+                    fetchHistory().then((response) => {
+                        if (response.status === 200) {
+                            setHistories(response.data);
+                        }
+                    }).catch(() => {
+                        setHistories([]);
+                    });
+                }}>+ Nouvelle conversation</button>
                 <h3>Historiques</h3>
                 {histories && histories.map((history) => (
                     <div key={history.id} className="chat-item-container">
