@@ -1,6 +1,5 @@
 from sqlalchemy import create_engine, Column, Integer, String, DateTime, ForeignKey, Text
 from sqlalchemy.orm import declarative_base, sessionmaker, relationship
-from sqlalchemy.exc import SQLAlchemyError
 from datetime import datetime
 from contextlib import contextmanager
 

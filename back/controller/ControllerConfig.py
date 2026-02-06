@@ -1,9 +1,11 @@
-from email.policy import default
 import json
+
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+
+from sqlalchemy.exc import SQLAlchemyError, IntegrityError, OperationalError, ProgrammingError, NoSuchColumnError, NoSuchTableError, DBAPIError
 
 
 app = FastAPI()
@@ -105,5 +107,82 @@ async def generic_exception_handler(request: Request, exc: Exception):
          "status": 500,
          "message": getattr(exc, "detail", "Internal server error"),
          "details": exc.errors() if hasattr(exc, "errors") else str(exc)
+      }
+   )
+
+@app.exception_handler(SQLAlchemyError)
+async def sqlalchemy_exception_handler(request: Request, exc: SQLAlchemyError):
+   return JSONResponse(
+      status_code=500,
+      content={
+         "status": 500,
+         "message": "Database error",
+         "details": str(exc)
+      }
+   )
+
+@app.exception_handler(IntegrityError)
+async def integrity_exception_handler(request: Request, exc: IntegrityError):
+   return JSONResponse(
+      status_code=400,
+      content={
+         "status": 400,
+         "message": "Database integrity error",
+         "details": str(exc)
+      }
+   )
+
+@app.exception_handler(OperationalError)
+async def operational_exception_handler(request: Request, exc: OperationalError):
+   return JSONResponse(
+      status_code=500,
+      content={
+         "status": 500,
+         "message": "Database operational error",
+         "details": str(exc)
+      }
+   )
+
+@app.exception_handler(ProgrammingError)
+async def programming_exception_handler(request: Request, exc: ProgrammingError):
+   return JSONResponse(
+      status_code=500,
+      content={
+         "status": 500,
+         "message": "Database programming error",
+         "details": str(exc)
+      }
+   )
+
+@app.exception_handler(NoSuchColumnError)
+async def no_such_column_exception_handler(request: Request, exc: NoSuchColumnError):
+   return JSONResponse(
+      status_code=500,
+      content={
+         "status": 500,
+         "message": "Database column not found",
+         "details": str(exc)
+      }
+   )
+
+@app.exception_handler(NoSuchTableError)
+async def no_such_table_exception_handler(request: Request, exc: NoSuchTableError):
+   return JSONResponse(
+      status_code=500,
+      content={
+         "status": 500,
+         "message": "Database table not found",
+         "details": str(exc)
+      }
+   )
+
+@app.exception_handler(DBAPIError)
+async def dbapi_exception_handler(request: Request, exc: DBAPIError):
+   return JSONResponse(
+      status_code=500,
+      content={
+         "status": 500,
+         "message": "Database API error",
+         "details": str(exc)
       }
    )
