@@ -164,6 +164,7 @@ export default function ChatBot() {
                             value={inputText}
                             onChange={(e) => setInputText(e.target.value)}
                             onKeyUp={handleKeyPress}
+                            maxLength="40000"
                         />
                         <button className="send-button" onClick={handleSendMessage} disabled={loadingAIResponse}>
                             Envoyer
