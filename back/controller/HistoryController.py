@@ -2,7 +2,7 @@ from datetime import datetime
 from fastapi import Depends
 from request.NewMessageRequest import NewMessageRequest
 from utils.AIModelresponse import get_ai_response_distant, get_max_id
-from database.database import deleteById, getHistoryById, insertHistory, getHistoryByUserId, get_next_history_id, addMessageToHistory, cleanDatabase
+from database.database_sqlalchemy import deleteById, getHistoryById, insertHistory, getHistoryByUserId, addMessageToHistory, cleanDatabase
 from utils.jwtConfig import get_current_user
 from model.history import History
 from model.user import User
@@ -57,11 +57,11 @@ async def getHistoryByIdRoute(history_id: int, current_user: User = Depends(get_
 
 @app.post("/history")
 async def createHistoryRoute(current_user: User = Depends(get_current_user)):
-    next_id = get_next_history_id()
+    #next_id = get_next_history_id()
     history_item = History(
-        id = next_id,
+        #id = next_id,
         user_id = current_user.id,
-        name = f"Conversation {next_id}",
+        name = f"Conversation du {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
         messages = []
     )
     inserted_history_id = insertHistory(history_item)

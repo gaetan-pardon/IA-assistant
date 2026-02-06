@@ -2,12 +2,12 @@ from dotenv import dotenv_values
 from fastapi import Depends
 from fastapi.responses import JSONResponse
 
-from database.database import get_next_user_id
+#from database.database import get_next_user_id
 from model.user import User
 from request.UserRequest import UserRequest
 from utils.registrationManagement import hash_password, verify_password
 
-from database.database import insertUser, getUserByEmail
+from database.database_sqlalchemy import insertUser, getUserByEmail
 
 from utils.jwtConfig import create_access_token, get_current_user, verify_access_token
 from controller.ControllerConfig import app
@@ -28,7 +28,6 @@ async def registerUser(user_request: UserRequest):
     
    hashed_password = hash_password(user_request.password)
    user_to_create = User(
-      id = get_next_user_id(),
       email = user_request.email,
       hashed_password = hashed_password,
    )
