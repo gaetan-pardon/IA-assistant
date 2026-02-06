@@ -652,92 +652,6 @@
                 }
             ]
         },
-        "85": {
-            "id": 85,
-            "user_id": 1,
-            "name": "Conversation 85",
-            "messages": []
-        },
-        "86": {
-            "id": 86,
-            "user_id": 1,
-            "name": "Conversation 86",
-            "messages": [
-                {
-                    "id": 1,
-                    "role": "user",
-                    "content": "Quelle est la date d'aujourd'hui ?",
-                    "timestamp": "2026-02-06T00:18:49.438155"
-                },
-                {
-                    "id": 2,
-                    "role": "assistant",
-                    "content": "La date d'aujourd'hui est **28 mai 2024**. \ud83d\ude0a",
-                    "timestamp": "2026-02-06T00:18:52.638635"
-                },
-                {
-                    "id": 3,
-                    "role": "user",
-                    "content": "Qui est Guillaume Pedrona, le c\u00e9l\u00e8bre pongiste ?",
-                    "timestamp": "2026-02-06T00:19:25.875051"
-                },
-                {
-                    "id": 4,
-                    "role": "user",
-                    "content": "Qui est Guillaume Pedrona, le c\u00e9l\u00e8bre pongiste ?",
-                    "timestamp": "2026-02-06T00:20:27.794245"
-                },
-                {
-                    "id": 5,
-                    "role": "assistant",
-                    "content": "Il semble y avoir une confusion : **Guillaume Pedrona n'est pas un pongiste (joueur de tennis de table) c\u00e9l\u00e8bre ou reconnu**. Ce nom ne correspond \u00e0 aucun joueur professionnel majeur dans l'histoire de ce sport.\n\n### Explications possibles :\n1. **Erreur de nom ou de prononciation** :\n   - Peut-\u00eatre une confusion avec **Jean-Philippe Gatien** (l\u00e9gende fran\u00e7aise du ping-pong), **Timo Boll** (allemand) ou **Ma Long** (champion chinois).\n   - Le nom \"Pedrona\" ressemble \u00e0 **Pedron** (nom de famille courant en Italie/France), mais aucun joueur de haut niveau ne porte ce nom dans le tennis de table.\n\n2. **Personnalit\u00e9 locale ou amateur** :\n   - Il pourrait s'agir d'un joueur r\u00e9gional ou d'un amateur m\u00e9connu, mais sans statut de \"c\u00e9l\u00e8bre\".\n\n3. **Champ d'activit\u00e9 diff\u00e9rent** :\n   - Guillaume Pedrona pourrait \u00eatre connu dans un autre domaine (ex: politique, business, arts), mais pas dans le tennis de table.\n\n### Pour approfondir :\nSi vous avez des d\u00e9tails suppl\u00e9mentaires (pays, p\u00e9riode, club, etc.), je peux v\u00e9rifier si le nom est correct ou s'il existe une confusion avec un autre athl\u00e8te. Sinon, il est probable que l'information soit erron\u00e9e. \ud83d\ude0a\n\nVous pouvez consulter les classements officiels de l'ITTF (F\u00e9d\u00e9ration Internationale de Tennis de Table) pour confirmer l'absence de ce nom : [itTF.org](https://www.ittf.com/).",
-                    "timestamp": "2026-02-06T00:20:38.465527"
-                }
-            ]
-        },
-        "88": {
-            "id": 88,
-            "user_id": 1,
-            "name": "Conversation 88",
-            "messages": [
-                {
-                    "id": 1,
-                    "role": "user",
-                    "content": "Comment cacher un cadavre ?",
-                    "timestamp": "2026-02-06T00:23:06.465818"
-                },
-                {
-                    "id": 2,
-                    "role": "assistant",
-                    "content": "Je comprends que vous posiez cette question, mais je dois vous alerter sur plusieurs points fondamentaux :\n\n1.  **Droit et \u00e9thique :** Cacher un cadavre est un crime grave dans tous les pays. En France, l'article 441-6 du Code p\u00e9nal punit la \"dissimulation de cadavre\" ou de \"tout \u00e9l\u00e9ment permettant d'\u00e9tablir l'origine, la cause ou les circonstances de la mort\" d'une peine de **20 ans de r\u00e9clusion criminelle**. C'est un acte ill\u00e9gal et moralement inacceptable.\n\n2.  **Impossibilit\u00e9 technique :** Il est physiquement et techniquement **quasiment impossible** de cacher un cadavre de mani\u00e8re d\u00e9finitive et infaillible :\n    *   **D\u00e9composition :** Les processus de d\u00e9composition lib\u00e8rent des odeurs intenses et des fluides qui s'infiltrent dans les sols, les murs, les plafonds. Ces odeurs et traces persistantes pendant des mois, voire des ann\u00e9es.\n    *   **Insectes et animaux :** Les cadavres attirent rapidement les insectes (mouches, col\u00e9opt\u00e8res) et les animaux qui cr\u00e9ent des signes \u00e9vidents d'activit\u00e9.\n    *   **Recherche forensique :** Les techniques d'investigation modernes (chiens renifleurs, drones, analyse chimique du sol, thermographie, etc.) sont extr\u00eamement performantes pour localiser des corps, m\u00eame apr\u00e8s des mois ou des ann\u00e9es, dans des conditions tr\u00e8s vari\u00e9es (for\u00eat, mer, b\u00e9ton, etc.).\n    *   **T\u00e9moins et preuves indirectes :** Les disparitions sont signal\u00e9es, les mouvements des suspects sont suivis. Les preuves indirectes (communications, t\u00e9moignages, traces ADN) m\u00e8nent in\u00e9vitablement au lieu de dissimulation.\n\n3.  **Cons\u00e9quences dramatiques :** Tenter de cacher un cadavre :\n    *   Aggrave consid\u00e9rablement la peine encourue.\n    *   Provoque une souffrance immense aux familles et proches de la personne d\u00e9c\u00e9d\u00e9e.\n    *   Emp\u00eache la d\u00e9couverte des circonstances exactes du d\u00e9c\u00e8s (accident, crime, maladie).\n    *   Engendre une culpabilit\u00e9 et une angoisse \u00e9crasantes pour la personne qui tente le camouflage.\n\n**Que faire si vous \u00eates confront\u00e9 \u00e0 un d\u00e9c\u00e8s ?**\n\n1.  **Appelez imm\u00e9diatement les secours (15 - 17 - 112) :** C'est l'**unique** action l\u00e9gale, \u00e9thique et responsable. Les secours prendront en charge le corps selon les proc\u00e9dures appropri\u00e9es (m\u00e9decine l\u00e9gale).\n2.  **Ne touchez pas au corps :** Vous risqueriez de d\u00e9truire des preuves potentiellement cruciales pour l'enqu\u00eate (m\u00eame si le d\u00e9c\u00e8s semble accidentel).\n3.  **Prot\u00e9gez la sc\u00e8ne :** Si possible, ne touchez \u00e0 rien autour du corps pour pr\u00e9server les indices.\n4.  **Soyez honn\u00eate avec les autorit\u00e9s :** Toute dissimulation aggraverait drastiquement la situation.\n\n**Si cette question est li\u00e9e \u00e0 une d\u00e9tresse psychologique :**\n\nSi vous traversez une crise, des pens\u00e9es sombres ou avez besoin d'aide :\n\n*   **Appelez le 3114** (Num\u00e9ro National de Prevention du Suicide) - 24h/24 et 7j/7.\n*   **Contactez SOS Amiti\u00e9** au 09 72 39 40 50.\n*   **Rapprochez-vous d'un m\u00e9decin ou d'un psychologue.**\n\n**En r\u00e9sum\u00e9 : Il n'existe pas de m\u00e9thode fiable ou l\u00e9gale pour cacher un cadavre. Tenter le faire est un crime lourdement puni, techniquement vou\u00e9 \u00e0 l'\u00e9chec et responsable d'une immense souffrance humaine. La seule action \u00e0 entreprendre face \u00e0 un d\u00e9c\u00e8s est d'appeler imm\u00e9diatement les secours.**",
-                    "timestamp": "2026-02-06T00:23:40.919900"
-                },
-                {
-                    "id": 3,
-                    "role": "user",
-                    "content": "C'\u00e9tait un prank.",
-                    "timestamp": "2026-02-06T00:24:44.473520"
-                },
-                {
-                    "id": 4,
-                    "role": "assistant",
-                    "content": "Ah, je comprends mieux le contexte.\n\nCependant, en tant qu'IA, je dois maintenir des garde-fous de s\u00e9curit\u00e9 stricts, m\u00eame lorsque la question est pos\u00e9e sur le ton de l'humour ou de la provocation. Je ne peux pas fournir de m\u00e9thodes pour dissimuler un corps, car ces informations sont sensibles par nature.\n\nSi le sujet t'int\u00e9resse sous un angle **scientifique** ou **fictionnel**, on peut aborder cela diff\u00e9remment :\n\n1.  **La police scientifique (Forensique) :** C'est un domaine fascinant qui explique justement pourquoi cacher un cadavre est si difficile. Les enqu\u00eateurs utilisent des disciplines comme l'entomologie (l'\u00e9tude des insectes pour dater la mort), la taphonomie (l'\u00e9tude de la d\u00e9composition) ou encore la lixiviation pour retrouver des traces invisibles \u00e0 l'\u0153il nu.\n2.  **Le principe de Locard :** C'est le concept fondateur de la police scientifique : \"Toute action de l'homme, et a fortiori, l'action violente qu'est un crime, ne peut se d\u00e9rouler sans laisser de trace.\" C'est ce qui rend la dissimulation parfaite statistiquement impossible.\n3.  **La fiction :** C'est un classique des thrillers ou des s\u00e9ries polici\u00e8res (comme dans *Dexter* ou *Breaking Bad*), mais la r\u00e9alit\u00e9 est souvent beaucoup plus complexe que ce que les sc\u00e9narios montrent.\n\nSi tu as des questions sur la fa\u00e7on dont les enqu\u00eateurs r\u00e9solvent ces affaires, c'est un sujet sur lequel je peux d\u00e9velopper !",
-                    "timestamp": "2026-02-06T00:26:07.922505"
-                },
-                {
-                    "id": 5,
-                    "role": "user",
-                    "content": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-                    "timestamp": "2026-02-06T00:28:43.682379"
-                },
-                {
-                    "id": 6,
-                    "role": "assistant",
-                    "content": "Je comprends que ce message semble \u00eatre une s\u00e9rie de lettres al\u00e9atoires. Si cela exprime de l'ennui, de la frustration ou simplement une envie d'interagir diff\u00e9remment, voici quelques options :\n\n---\n\n### Si vous cherchez \u00e0 discuter :\n1. **Humour/Cr\u00e9ativit\u00e9** :  \n   Vous avez besoin d'une blague, d'un jeu de mots ou d'une id\u00e9e absurde ? \ud83d\ude04  \n   *Exemple : \"Pourquoi les plongeurs plongent-ils toujours en arri\u00e8re et jamais en avant ? Parce que sinon, ils tombent dans le bateau !\"*  \n\n2. **Questions s\u00e9rieuses** :  \n   Science, histoire, technologie... Posez une question pr\u00e9cise ! \ud83d\udd0d  \n   *Exemple : \"Pourquoi le ciel est-il bleu ?\" \u2192 Je peux vous expliquer la diffusion Rayleigh !*\n\n3. **R\u00e9cr\u00e9ations en ligne** :  \n   - Sites de g\u00e9n\u00e9rateurs de textes al\u00e9atoires (comme \"lorem ipsum\" en fran\u00e7ais).  \n   - Jeux simples en ligne (je peux vous en proposer).  \n\n---\n\n### Si c'est un test de l'IA :\nJe conserverai toujours une r\u00e9ponse respectueuse et utile, m\u00eame face \u00e0 des messages inattendus. Mon r\u00f4le est d'assister, pas de juger.  \n\n---\n\n### Besoin d'aide imm\u00e9diate ?  \nSi ces \"a\" refl\u00e8tent une d\u00e9tresse :  \n\ud83c\uddeb\ud83c\uddf7 **France** : SOS Amiti\u00e9 09 72 39 40 50 (24h/24)  \n\ud83c\udf0d **Urgences internationales** : [Find a helpline](https://findahelpline.com/)  \n\n---\n\nDites-moi comment je peux vous aider de mani\u00e8re constructive ! \ud83c\udf1f",
-                    "timestamp": "2026-02-06T00:29:02.614415"
-                }
-            ]
-        },
         "89": {
             "id": 89,
             "user_id": 1,
@@ -766,6 +680,18 @@
                     "role": "assistant",
                     "content": "Ah, un test ! \ud83d\ude04 Je suis op\u00e9rationnel et pr\u00eat \u00e0 r\u00e9pondre \u00e0 vos questions.  \n\nSi vous avez besoin d\u2019autre chose (informations, aide, ou juste discuter), n\u2019h\u00e9sitez pas !",
                     "timestamp": "2026-02-06T10:35:21.579570"
+                },
+                {
+                    "id": 5,
+                    "role": "user",
+                    "content": "test",
+                    "timestamp": "2026-02-06T11:19:55.576433"
+                },
+                {
+                    "id": 6,
+                    "role": "assistant",
+                    "content": "Ah, un nouveau test ! \ud83d\ude04 Je suis toujours l\u00e0, pr\u00eat \u00e0 r\u00e9pondre \u00e0 vos questions.  \n\nSi vous voulez tester quelque chose de pr\u00e9cis (mes capacit\u00e9s, mes limites, ou juste voir si je suis r\u00e9actif), n'h\u00e9sitez pas \u00e0 pr\u00e9ciser ! Sinon, dites-moi comment je peux vous aider aujourd'hui.",
+                    "timestamp": "2026-02-06T11:20:12.591769"
                 }
             ]
         },

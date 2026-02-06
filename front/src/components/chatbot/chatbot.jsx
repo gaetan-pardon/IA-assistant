@@ -136,7 +136,7 @@ export default function ChatBot() {
                         <button key={history.id} className="chat-item" onClick={() => changeHistory(history)} disabled={currentHistory?.id === history.id || loadingAIResponse}>
                             <span>{history.name}</span>
                         </button>
-                        <button onClick={() => deleteHistory(history.id)}>🗑</button>
+                        <button onClick={() => deleteHistory(history.id)} disabled={loadingAIResponse}>🗑</button>
                     </div>
                 ))}
             </section>
