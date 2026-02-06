@@ -29,7 +29,7 @@ export default function ChatBot() {
             }).finally(() => {
                 setLoading(false);
             });
-        }, []);
+        }, [currentHistory]);
     
         const handleSendMessage = () => {
             if (loadingAIResponse)
@@ -139,7 +139,7 @@ export default function ChatBot() {
                 <h3>Historiques</h3>
                 {histories && histories.map((history) => (
                     <div key={history.id} className="chat-item-container">
-                        <button key={history.id} className="chat-item" onClick={() => changeHistory(history)} disabled={currentHistory?.id === history.id || loadingAIResponse}>
+                        <button key={history.id} className={currentHistory?.id === history.id ? "chat-item active" : "chat-item"} onClick={() => changeHistory(history)} disabled={currentHistory?.id === history.id || loadingAIResponse}>
                             <span>{history.name}</span>
                         </button>
                         <button onClick={() => deleteHistory(history.id)} disabled={loadingAIResponse}>🗑</button>

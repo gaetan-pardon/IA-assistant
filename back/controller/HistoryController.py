@@ -2,7 +2,8 @@ from datetime import datetime
 from fastapi import Depends
 from request.NewMessageRequest import NewMessageRequest
 from utils.AIModelresponse import get_ai_response_distant, get_max_id
-from database.database import deleteById, getHistoryById, insertHistory, getHistoryByUserId, get_next_history_id, addMessageToHistory
+from database.database import deleteById, getHistoryById, insertHistory, getHistoryByUserId, get_next_history_id, addMessageToHistory, cleanDatabase
+from utils.jwtConfig import get_current_user
 from model.history import History
 from model.user import User
 from controller.ControllerConfig import app
@@ -13,6 +14,7 @@ from model.message import Message
 
 @app.get("/history")
 async def getHistoryByUserIdRoute(current_user: User = Depends(get_current_user)):
+    cleanDatabase()
     history_items = getHistoryByUserId(current_user.id)
     if history_items is None:
         return JSONResponse(status_code=404, content={
@@ -21,8 +23,9 @@ async def getHistoryByUserIdRoute(current_user: User = Depends(get_current_user)
             "details": f"No history items found for user with id {current_user.id}"
         })
     
-    # On retourne seulement les champs name et id de chaque history_item
-    id_names = [{"id": item["id"], "name": item["name"]} for item in history_items]
+    # On retourne seulement les champs name et id de chaque history_item dont le tableau messages n'est pas vide et dont le champ name n'est pas vide ou composé uniquement d'espaces
+    not_empty = [item for item in history_items if len(item["messages"]) != 0 and item["name"].strip() != ""]
+    id_names = [{"id": item["id"], "name": item["name"]} for item in not_empty]
     return JSONResponse(status_code=200, content={
         "status": 200,
         "message": "History retrieved successfully",
@@ -46,7 +49,6 @@ async def getHistoryByIdRoute(history_id: int, current_user: User = Depends(get_
             "details": "You do not have permission to access this history item"
         })
 
-    print(history_item)
     return JSONResponse(status_code=200, content={
         "status": 200,
         "message": "History item retrieved successfully",

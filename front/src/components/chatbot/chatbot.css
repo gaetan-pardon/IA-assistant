@@ -22,6 +22,17 @@
     transition: background-color 0.2s, border-color 0.2s;
 }
 
+.chat-item.active {
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: white;
+    color: black;
+    border: 1px solid #007bff;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
 .chat-item:hover {
     background-color: #e8f0ff;
     border-color: #007bff;

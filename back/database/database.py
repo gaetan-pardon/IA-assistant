@@ -74,3 +74,6 @@ def addMessageToHistory(history_id: int, message: dict):
 
 def deleteById(id: int):
     return history.remove(query.id == id)
+
+def cleanDatabase():
+    return history.remove(query.messages.length == 0)
