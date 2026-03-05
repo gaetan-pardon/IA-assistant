@@ -29,7 +29,7 @@ export default function ChatBot() {
             }).finally(() => {
                 setLoading(false);
             });
-        }, [currentHistory]);
+        }, []);
     
         const handleSendMessage = () => {
             if (loadingAIResponse)
@@ -127,13 +127,6 @@ export default function ChatBot() {
                         }
                     }).catch((error) => {
                         console.error("Error creating history:", error);
-                    });
-                    fetchHistory().then((response) => {
-                        if (response.status === 200) {
-                            setHistories(response.data);
-                        }
-                    }).catch(() => {
-                        setHistories([]);
                     });
                 }}>+ Nouvelle conversation</button>
                 <h3>Historiques</h3>

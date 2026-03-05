@@ -16,9 +16,11 @@ export function ProtectedRoute({ children }) {
                     setIsAuthenticated(true);
                 } else {
                     setIsAuthenticated(false);
+                    navigate("/login");
                 }
             } catch (error) {
                 setIsAuthenticated(false);
+                navigate("/login");
             } finally {
                 setLoading(false);
             }  
@@ -29,7 +31,6 @@ export function ProtectedRoute({ children }) {
     if (loading) {
         return <div>Loading...</div>;
     } else if (!isAuthenticated) {
-        navigate("/login");
         return null;
     }
     return children;

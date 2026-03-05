@@ -8,12 +8,12 @@ import { loginUser } from "../../services/UserService";
 
 export function LoginForm() {
     const [error, setError] = useState(null);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
-    async function handleSubmit() {
-        const form = document.getElementById('login-form');
-        const email = form.elements['email'].value;
-        const password = form.elements['password'].value;
+    async function handleSubmit(e) {
+        e.preventDefault();
 
         try {
             const response = await loginUser(email, password);
@@ -30,11 +30,27 @@ export function LoginForm() {
 
     return (
         <section>
-            <form id="login-form" className="connection-form" onSubmit={async (e) => { e.preventDefault(); handleSubmit(); }}>
+            <form className="connection-form" onSubmit={handleSubmit}>
                 <label>Email</label>
-                <input type='email' name="email" placeholder="Enter your email" required />
+                <input 
+                    type='email' 
+                    name="email" 
+                    placeholder="Enter your email" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required 
+                />
                 <label>Password</label>
-                <input type='password' name="password" placeholder="Enter your password" pattern=".{8,72}" required title="Your password must be at least 8 characters long and at most 72."/>
+                <input 
+                    type='password' 
+                    name="password" 
+                    placeholder="Enter your password" 
+                    pattern=".{8,72}" 
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required 
+                    title="Your password must be at least 8 characters long and at most 72."
+                />
                 <button type="submit">Log in</button>
                 <div>Don't have an account? Click <Link to="/register">here</Link></div>
             </form>

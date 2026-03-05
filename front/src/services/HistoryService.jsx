@@ -10,8 +10,11 @@ export async function fetchHistory() {
             method: 'GET',
             credentials: "include"
         });
-        const returned_response = await response.json();
-        return returned_response;
+        if (!response.ok) {
+            throw new Error(`Failed to fetch history: ${response.status}`);
+        }
+        const data = await response.json();
+        return { data, status: response.status };
     } catch (error) {
         console.error('Error fetching history:', error);
         throw error;
@@ -29,8 +32,11 @@ export async function fetchHistoryById(history_id) {
             method: 'GET',
             credentials: "include"
         });
-        const returned_response = await response.json();
-        return returned_response;
+        if (!response.ok) {
+            throw new Error(`Failed to fetch history by ID: ${response.status}`);
+        }
+        const data = await response.json();
+        return { data, status: response.status };
     } catch (error) {
         console.error('Error fetching history by ID:', error);
         throw error;
@@ -47,8 +53,11 @@ export async function createHistory() {
             method: 'POST',
             credentials: "include"
         });
-        const returned_response = await response.json();
-        return returned_response;
+        if (!response.ok) {
+            throw new Error(`Failed to create history: ${response.status}`);
+        }
+        const data = await response.json();
+        return { data, status: response.status };
     } catch (error) {
         console.error('Error creating history:', error);
         throw error;
@@ -72,8 +81,11 @@ export async function addMessageToHistory(history_id, content) {
             credentials: "include",
             body: body
         });
-        const returned_response = await response.json();
-        return returned_response;
+        if (!response.ok) {
+            throw new Error(`Failed to add message: ${response.status}`);
+        }
+        const data = await response.json();
+        return { data, status: response.status };
     } catch (error) {
         console.error('Error adding message to history:', error);
         throw error;
@@ -91,8 +103,11 @@ export async function deleteHistoryService(history_id) {
             method: 'DELETE',
             credentials: "include"
         });
-        const returned_response = await response.json();
-        return returned_response;
+        if (!response.ok) {
+            throw new Error(`Failed to delete history: ${response.status}`);
+        }
+        const data = await response.json();
+        return { data, status: response.status };
     } catch (error) {
         console.error('Error deleting history:', error);
         throw error;

@@ -9,15 +9,15 @@ const baseURL = 'http://localhost:8000'
 export async function registerUser(email, password) {
     try {
         
-        const response = await fetch(`${baseURL}/register`, {
+        const response = await fetch(`${baseURL}/user/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ "email": email, "password": password })
         });
-        const returned_response = await response.json();
-        return returned_response;
+        const data = await response.json();
+        return { ...data, status: response.status };
     } catch (error) {
         console.error('Error registering user:', error);
         throw error;
@@ -32,7 +32,7 @@ export async function registerUser(email, password) {
  */
 export async function loginUser(email, password) {
     try {
-        const response = await fetch(`${baseURL}/login`, {
+        const response = await fetch(`${baseURL}/user/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -40,9 +40,30 @@ export async function loginUser(email, password) {
             credentials: "include",
             body: JSON.stringify({ email, password })
         });
-        return await response.json();
+        const data = await response.json();
+        return { ...data, status: response.status };
     } catch (error) {
         console.error('Error logging in user:', error);
+        throw error;
+    }
+}
+
+/**
+ * Logs out the current user by deleting the access token cookie.
+ * @returns response data
+ */
+export async function logoutUser() {
+    try {
+        const response = await fetch(`${baseURL}/user/logout`, {
+            method: 'POST',
+            credentials: "include"
+        });
+        if (response.status === 204) {
+            return { success: true, message: "Logged out successfully" };
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('Error logging out user:', error);
         throw error;
     }
 }
@@ -53,11 +74,15 @@ export async function loginUser(email, password) {
  */
 export async function verifyToken() {
     try {
-        const response = await fetch(`${baseURL}/protected-route`, {
+        const response = await fetch(`${baseURL}/user/protected-route`, {
             method: 'GET',
             credentials: "include"
         });
-        return await response.json();
+        if (!response.ok) {
+            throw new Error('Token verification failed');
+        }
+        const data = await response.json();
+        return { data, status: response.status };
     } catch (error) {
         console.error('Error verifying token:', error);
         throw error;
