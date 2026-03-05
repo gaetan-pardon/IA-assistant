@@ -57,6 +57,6 @@ async def get_current_user(access_token: str = Cookie(None)):
         user = getUserByEmail(email)
         if user is None:
             raise HTTPException(status_code=401, detail="Utilisateur non trouvé")
-        return User(**dict(user))
+        return User(**user)
     except ValueError as e:
         raise HTTPException(status_code=401, detail=str(e))

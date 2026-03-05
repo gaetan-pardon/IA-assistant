@@ -1,1 +1,1 @@
-python -m uvicorn controller.UserController:app --reload
+python -m uvicorn main:app --reload

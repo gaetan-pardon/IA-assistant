@@ -29,7 +29,7 @@ def insertUser(user: dict):
     existingUser = getUserByEmail(user.email)
     if existingUser is not None:
         return existingUser
-    return users.insert(user.dict())
+    return users.insert(user.model_dump())
 
 def deleteUserByid(id: int):
     return users.remove(query.id == id)
@@ -56,7 +56,7 @@ def getHistoryByUserId(user_id: int):
     return history.search(query.user_id == user_id)
 
 def insertHistory(history_item: dict):
-    return history.insert(history_item.dict())
+    return history.insert(history_item.model_dump())
 
 def addMessageToHistory(history_id: int, message: dict):
     history_item = getHistoryById(history_id)
@@ -64,7 +64,7 @@ def addMessageToHistory(history_id: int, message: dict):
         return None
     messages = history_item.get("messages", [])
     # Convertir le message en dictionnaire s'il est un objet Pydantic
-    message_dict = message.dict() if hasattr(message, 'dict') else message
+    message_dict = message.model_dump() if hasattr(message, 'model_dump') else message
     # S'assurer que le timestamp est sérialisable en JSON
     if isinstance(message_dict.get("timestamp"), datetime):
         message_dict["timestamp"] = message_dict["timestamp"].isoformat()

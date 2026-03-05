@@ -4,47 +4,14 @@
             "id": 1,
             "email": "pedrona.guillaume@orange.fr",
             "hashed_password": "$2b$12$/xtAvIkCQ3xZ3Dy32E2hs.BeNEWUaypZhKnnggarVRw4fr47BH9lC"
+        },
+        "2": {
+            "id": 2,
+            "email": "me@me.com",
+            "hashed_password": "$2b$12$Oi1JNqVZ5aDWYHn451sTDONE4FAFsy29jSzFzbbY6rZsTOgjbtdo."
         }
     },
     "history": {
-        "48": {
-            "id": 48,
-            "user_id": 1,
-            "name": "Conversation 48",
-            "messages": [
-                {
-                    "id": 1,
-                    "role": "user",
-                    "content": "test",
-                    "timestamp": "2026-02-05T22:36:27.729915"
-                },
-                {
-                    "id": 2,
-                    "role": "assistant",
-                    "content": "The user input \"test\" is a simple command to verify system functionality. Here's a concise implementation:\n\n```python\ndef test_function():\n    \"\"\"Basic test function returning a confirmation message.\"\"\"\n    return \"Test successful: System operational.\"\n\nif __name__ == \"__main__\":\n    result = test_function()\n    print(result)\n```\n\n**Output:**\n```\nTest successful: System operational.\n```\n\n**Explanation:**\n1. The `test_function` returns a fixed success message\n2. When run as a script, it executes the main block\n3. Prints confirmation that the test passed\n4. Demonstrates basic Python functionality (function definition, string handling, and execution flow)\n\nThis implementation covers fundamental programming concepts while providing clear verification of system capability.",
-                    "timestamp": "2026-02-05T22:36:37.587156"
-                }
-            ]
-        },
-        "50": {
-            "id": 50,
-            "user_id": 1,
-            "name": "Conversation 50",
-            "messages": [
-                {
-                    "id": 1,
-                    "role": "user",
-                    "content": "Qui es-tu ?",
-                    "timestamp": "2026-02-05T22:39:30.668346"
-                },
-                {
-                    "id": 2,
-                    "role": "assistant",
-                    "content": "Je suis GLM, un grand mod\u00e8le de langage d\u00e9velopp\u00e9 par Zhipu AI. \n\nJ'ai \u00e9t\u00e9 entra\u00een\u00e9 sur un large corpus de textes pour comprendre et g\u00e9n\u00e9rer du contenu dans plusieurs langues, dont le fran\u00e7ais. Je suis con\u00e7u pour assister les utilisateurs avec diverses t\u00e2ches allant de la fourniture d'informations \u00e0 la r\u00e9solution de probl\u00e8mes.\n\nY a-t-il quelque chose de sp\u00e9cifique dont vous aimeriez discuter ou dont vous auriez besoin d'aide aujourd'hui ?",
-                    "timestamp": "2026-02-05T22:39:41.605489"
-                }
-            ]
-        },
         "52": {
             "id": 52,
             "user_id": 1,
@@ -491,6 +458,97 @@
                     "role": "assistant",
                     "content": "I'll help you test this! Let's run a quick diagnostic:\n\n\u2705 **System Status**: Active  \n\u2705 **Connectivity**: Stable  \n\u2705 **Response Time**: <1s  \n\u2705 **Capabilities**: Natural language processing, reasoning, coding, analysis  \n\n### Try me with:\n- \"Explain quantum computing in simple terms\"  \n- \"Write a Python function to calculate Fibonacci numbers\"  \n- \"Summarize the key themes of Dostoevsky's Crime and Punishment\"  \n- \"Debug this code: [paste your code]\"  \n\nWhat would you like to test today?",
                     "timestamp": "2026-02-06T12:32:11.904344"
+                }
+            ]
+        },
+        "181": {
+            "id": 181,
+            "user_id": 2,
+            "name": "Conversation 181",
+            "messages": []
+        },
+        "182": {
+            "id": 182,
+            "user_id": 2,
+            "name": "Conversation 182",
+            "messages": []
+        },
+        "183": {
+            "id": 183,
+            "user_id": 2,
+            "name": "Conversation 183",
+            "messages": []
+        },
+        "184": {
+            "id": 184,
+            "user_id": 2,
+            "name": "Conversation 184",
+            "messages": []
+        },
+        "185": {
+            "id": 185,
+            "user_id": 1,
+            "name": "Conversation 185",
+            "messages": []
+        },
+        "186": {
+            "id": 186,
+            "user_id": 1,
+            "name": "Conversation 186",
+            "messages": []
+        },
+        "187": {
+            "id": 187,
+            "user_id": 1,
+            "name": "Conversation 187",
+            "messages": []
+        },
+        "188": {
+            "id": 188,
+            "user_id": 2,
+            "name": "Conversation 188",
+            "messages": []
+        },
+        "189": {
+            "id": 189,
+            "user_id": 2,
+            "name": "Conversation 189",
+            "messages": []
+        },
+        "190": {
+            "id": 190,
+            "user_id": 2,
+            "name": "Conversation 190",
+            "messages": []
+        },
+        "191": {
+            "id": 191,
+            "user_id": 1,
+            "name": "Conversation 191",
+            "messages": []
+        },
+        "192": {
+            "id": 192,
+            "user_id": 1,
+            "name": "Conversation 192",
+            "messages": []
+        },
+        "193": {
+            "id": 193,
+            "user_id": 1,
+            "name": "Conversation 193",
+            "messages": [
+                {
+                    "id": 1,
+                    "role": "user",
+                    "content": "coucou",
+                    "timestamp": "2026-03-05T11:14:53.884181"
+                },
+                {
+                    "id": 2,
+                    "role": "assistant",
+                    "content": "Coucou ! \ud83d\ude0a Comment puis-je vous aider aujourd'hui ?",
+                    "timestamp": "2026-03-05T11:15:21.647308"
                 }
             ]
         }

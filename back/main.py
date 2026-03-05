@@ -1,50 +1,132 @@
-#from fastapi import FastAPI
+from email.policy import default
+import json
+from fastapi import FastAPI, HTTPException, Request
+from fastapi.exceptions import RequestValidationError
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from fastapi.openapi.utils import get_openapi
 
-# import TinyDB from tinydb
-import datetime
 
+from controller.UserController import user_router
+from controller.HistoryController import history_router
 
-#qwen/qwen3-4b:free
+app = FastAPI()
 
-messages = [
-    {"role": "system", "content": "You are a helpful assistant."},
-    {"role": "user", "content": "Hello!"},
-    {"role": "assistant", "content": "Hi! How can I help you today?"},
-    {"role": "user", "content": "What's the weather?"},
+origins= [
+   "http://localhost:5173",
+   "http://localhost:5173/"
 ]
 
-
-itemexample = {
-    "user": "12345",
-    "conversation_name": "My Conversation",
-    "conversation": messages
+# En-têtes CORS à inclure dans toutes les réponses
+cors_headers = {
+   "Access-Control-Allow-Origin": "http://localhost:5173",
+   "Access-Control-Allow-Credentials": "true",
 }
 
-userexample = {
-    "user": "12345",
-    "mdp": "hashed_password",
-}
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-#from llama_index.llms.openrouter import OpenRouter #marche pas
-#from openai import OpenAI #marche pas
-#import requests #marche pas
+app.include_router(user_router)
+app.include_router(history_router)
 
-from utils.AIModelresponse import get_ai_response, get_ai_response_distant
+@app.exception_handler(HTTPException)
+async def http_exception_handler(request: Request, exc: HTTPException):
+   return JSONResponse(
+      status_code=exc.status_code,
+      content={
+         "status": exc.status_code,
+         "message": getattr(exc, "detail", "HTTP error"),
+         "details": exc.errors() if hasattr(exc, "errors") else None
+      },
+      headers=cors_headers
+   )
+
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request: Request, exc: RequestValidationError):
+   return JSONResponse(
+      status_code=422,
+      content={
+         "status": 422,
+         "message": "Validation error",
+         "details": exc.errors()
+      },
+      headers=cors_headers
+   )
+
+@app.exception_handler(FileNotFoundError)
+async def file_not_found_exception_handler(request: Request, exc: FileNotFoundError):
+   return JSONResponse(
+      status_code=404,
+      content={
+         "status": 404,
+         "message": getattr(exc, "detail", "File not found"),
+         "details": exc.errors() if hasattr(exc, "errors") else None
+      },
+      headers=cors_headers
+   )
+
+@app.exception_handler(json.JSONDecodeError)
+async def json_decode_exception_handler(request: Request, exc: json.JSONDecodeError):
+   return JSONResponse(
+      status_code=400,
+      content={
+         "status": 400,
+         "message": getattr(exc, "detail", "JSON decode error"),
+         "details": exc.errors() if hasattr(exc, "errors") else None
+      },
+      headers=cors_headers
+   )
 
 
-prompt = "Give me a very short introduction to large language model."
-messages2 = [         {"role": "user", "content": prompt}     ]
+@app.exception_handler(PermissionError)
+async def permission_exception_handler(request: Request, exc: PermissionError):
+   return JSONResponse(
+      status_code=403,
+      content={
+         "status": 403,
+         "message": getattr(exc, "detail", "Permission denied"),
+         "details": exc.errors() if hasattr(exc, "errors") else None
+      },
+      headers=cors_headers
+   )
 
-messagestime = [
-    {"id": 1, "role": "system", "content": "You are a helpful assistant.", "timestamp": datetime.datetime.now()},
-    {"id": 2, "role": "user", "content": "Hello!",  "timestamp": datetime.datetime.now()},
-    {"id": 3, "role": "assistant", "content": "Hi! How can I help you today?",  "timestamp": datetime.datetime.now()},
-    {"id": 4, "role": "user", "content": "What's the weather in france ?",  "timestamp": datetime.datetime.now()},
-]
+@app.exception_handler(Exception)
+async def general_exception_handler(request: Request, exc: Exception):
+   """Gère toutes les autres exceptions non capturées"""
+   return JSONResponse(
+      status_code=500,
+      content={
+         "status": 500,
+         "message": str(exc),
+         "details": None
+      },
+      headers=cors_headers
+   )
 
+# Configuration de la documentation OpenAPI pour inclure l'authentification par cookie (Swagger)
+def custom_openapi():
+    if app.openapi_schema:
+        return app.openapi_schema
+    schema = get_openapi(
+        title=app.title,
+        version=app.version,
+        description=app.description,
+        routes=app.routes,
+    )
+    schema.setdefault("components", {}).setdefault("securitySchemes", {})["CookieAuth"] = {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "access_token",
+    }
+    for path in schema.get("paths", {}).values():
+        for operation in path.values():
+            operation.setdefault("security", [{"CookieAuth": []}])
+    app.openapi_schema = schema
+    return schema
 
-response = get_ai_response(messagestime)
-
-response = get_ai_response_distant(messagestime)
-
-#app = FastAPI()
+app.openapi = custom_openapi

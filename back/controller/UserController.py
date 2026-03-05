@@ -1,64 +1,36 @@
+from typing import Annotated
 from dotenv import dotenv_values
-from fastapi import Depends
-from fastapi.responses import JSONResponse
+from fastapi import APIRouter, Depends, Response
 
-from database.database import get_next_user_id
+from response.UserResponse import UserResponse
 from model.user import User
 from request.UserRequest import UserRequest
-from utils.registrationManagement import hash_password, verify_password
+from utils.jwtConfig import create_access_token, get_current_user
+from service.UserService import UserService
 
-from database.database import insertUser, getUserByEmail
 
-from utils.jwtConfig import create_access_token, get_current_user, verify_access_token
-from controller.ControllerConfig import app
+def get_user_service() -> UserService:
+    """Get a UserService instance with the database session"""
+    return UserService()
 
-import controller.HistoryController
+
+user_router = APIRouter(prefix="/user", tags=["user"])
+UserServiceDep = Annotated[UserService, Depends(get_user_service)]
 
 config = dotenv_values(".env")
 TOKEN_EXPIRE_MINUTES = int(config["TOKEN_EXPIRE_MINUTES"])
 
-@app.post("/register")
-async def registerUser(user_request: UserRequest):
-   if getUserByEmail(user_request.email) is not None:
-      return JSONResponse(status_code=400, content={
-         "status": 400,
-         "message": "Invalid request",
-         "details": "Email already registered. You must log in instead."
-      })
-    
-   hashed_password = hash_password(user_request.password)
-   user_to_create = User(
-      id = get_next_user_id(),
-      email = user_request.email,
-      hashed_password = hashed_password,
-   )
+@user_router.post("/register", response_model=UserResponse, status_code=201)
+async def registerUser(user_request: UserRequest, user_service: UserServiceDep):
+   return await user_service.registerUser(user_request)
 
-   inserted_user_id = insertUser(user_to_create)
-   if inserted_user_id is None:
-      return JSONResponse(status_code=500, content={
-         "status": 500,
-         "message": "Internal server error",
-         "details": "Failed to create user"
-      })
-   return JSONResponse(status_code=201, content={ "status": 201, "message": "User created successfully", "data": {"id": inserted_user_id, "email": user_to_create.email} })
-
-
-@app.post("/login")
-async def loginUser(user_request: UserRequest):
-   dbUser = getUserByEmail(user_request.email)
-   if dbUser is None:
-      return JSONResponse(status_code=404, content={
-            "status": 404,
-            "message": "User not found",
-            "details": "You must create an account first."
-         })
-   user = User(**dict(dbUser))
-
-   if verify_password(user_request.password, user.hashed_password) == False:
-      return JSONResponse(status_code=401, content={ "status": 401, "message": "Login failed", "details": "Wrong password" })
+@user_router.post("/login", response_model=UserResponse, status_code=200)
+async def loginUser(response: Response, user_request: UserRequest, user_service: UserServiceDep):
+   user = await user_service.loginUser(user_request)
+   if user is None:
+      raise Exception("Login failed. Invalid email or password.")
 
    token = create_access_token(user.email)
-   response = JSONResponse(status_code=200, content={ "status": 200, "message": "Login successful", "data": {"email": user.email} })
    response.set_cookie(
       key = "access_token",
       value = token,
@@ -67,8 +39,13 @@ async def loginUser(user_request: UserRequest):
       samesite = "lax",
       max_age = TOKEN_EXPIRE_MINUTES * 60000
    )
-   return response
+   return user
 
-@app.get("/protected-route")
+@user_router.post("/logout", status_code=204)
+async def logoutUser(response: Response):
+   response.delete_cookie(key="access_token")
+   return { "message": "Logged out successfully" }
+
+@user_router.get("/protected-route")
 async def protected_route(current_user: User = Depends(get_current_user)):
-   return JSONResponse(status_code=200, content={ "status": 200, "message": "Protected route accessed successfully", "data": {"email": current_user.email} })
+   return current_user.email
