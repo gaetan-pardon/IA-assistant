@@ -7,10 +7,10 @@ Créez une nouvelle conversation et discutez avec le modèle d'IA "z-ai/glm-4.5-
 ### Variables d'environnement
 
 Dans le dossier ```back```, créez un fichier ```.env``` et initialisez les variables suivantes :    
-```SECRET_KEY = "une_phrase_vraiment_secrète"```  
-```ALGORITHM = "HS256"```  
-```TOKEN_EXPIRE_MINUTES = 30```  
-```TOKEN_OPENROUTER = "votre_clé_openrouter"```  
+```SECRET_KEY=une_phrase_vraiment_secrète```  
+```ALGORITHM=HS256```  
+```TOKEN_EXPIRE_MINUTES=30```  
+```TOKEN_OPENROUTER=votre_clé_openrouter```  
 
 La variable ```SECRET_KEY``` est une clé personnelle, vous pouvez mettre dedans ce que vous voulez. Elle sera utilisée pour la création de votre json web token (JWT).   
 La variable ```ALGORITHM``` permet de définir l'algorithme utilisé pour la création du JWT. Vous pouvez laisser ```HS256``` ou en choisir un autre.   

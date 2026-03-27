@@ -9,6 +9,11 @@
             "id": 2,
             "email": "me@me.com",
             "hashed_password": "$2b$12$Oi1JNqVZ5aDWYHn451sTDONE4FAFsy29jSzFzbbY6rZsTOgjbtdo."
+        },
+        "3": {
+            "id": 3,
+            "email": "i@i.com",
+            "hashed_password": "$2b$12$ZdOld7888cWJNGeGzwmZh.19lbOeO3l4.4SZmkjinYnowXJ2MfzxG"
         }
     },
     "history": {
