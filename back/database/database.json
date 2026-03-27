@@ -98,25 +98,6 @@
                 }
             ]
         },
-        "75": {
-            "id": 75,
-            "user_id": 1,
-            "name": "Conversation 75",
-            "messages": [
-                {
-                    "id": 1,
-                    "role": "user",
-                    "content": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-                    "timestamp": "2026-02-06T00:08:15.909244"
-                },
-                {
-                    "id": 2,
-                    "role": "assistant",
-                    "content": "That's quite the impressive wall of \"a\"s! \ud83d\ude05 It appears to be a highly repetitive pattern of 256 \"a\"s followed by a space, repeating multiple times.\n\nIf you're testing the system's response limits, exploring text patterns, or just having fun with keyboard input, mission accomplished! However, processing such a massive block of identical characters isn't very practical for meaningful conversation.\n\nFeel free to ask a question or share something more specific\u2014 I'm here to help! \ud83d\ude80",
-                    "timestamp": "2026-02-06T00:08:26.232968"
-                }
-            ]
-        },
         "77": {
             "id": 77,
             "user_id": 1,
@@ -549,6 +530,25 @@
                     "role": "assistant",
                     "content": "Coucou ! \ud83d\ude0a Comment puis-je vous aider aujourd'hui ?",
                     "timestamp": "2026-03-05T11:15:21.647308"
+                }
+            ]
+        },
+        "194": {
+            "id": 194,
+            "user_id": 1,
+            "name": "Conversation 194",
+            "messages": [
+                {
+                    "id": 1,
+                    "role": "user",
+                    "content": "atchik atchik",
+                    "timestamp": "2026-03-27T14:30:10.722099"
+                },
+                {
+                    "id": 2,
+                    "role": "assistant",
+                    "content": "It looks like you've typed \"atchik atchik\" \u2013 that doesn't appear to be a word, phrase, or common sound in English or most widely recognized languages. Here are a few possibilities for what it might be:\n\n### 1. **Typo or Keyboard Mismatch**  \n   - Could it be a typo for something like \"tick tock\" (like a clock)?  \n   - Or perhaps \"tic tac\" (like the mint candy)?  \n   - If you meant to type something else, feel free to clarify!\n\n### 2. **Onomatopoeia or Sound Effect**  \n   - It might mimic a repetitive sound, like:  \n     - A clock ticking (\"tick-tick\")  \n     - Gunfire (\"rat-a-tat\")  \n     - Machinery or a clicking noise  \n   - If it's from a meme, song, or game, context could help identify it!\n\n### 3. **Niche Language or Slang**  \n   - It could be a word from a specific dialect, language, or online community. For example:  \n     - In some contexts, \"atchik\" might be a playful or made-up word (like in gaming or roleplay).  \n     - It might also be a phonetic spelling of something in another language (e.g., Russian, Turkish, or Arabic words that sound similar).\n\n### 4. **Meme or Inside Joke**  \n   - Internet memes often use nonsensical phrases (\"atchik atchik\" might be one of them!). If it\u2019s from a trend, video, or viral sound, let me know where you saw it!\n\n### How to Help:  \nIf you can provide more context (like where you encountered it, what you were trying to say, or if it\u2019s a sound), I\u2019d be happy to dig deeper! \ud83d\ude0a Otherwise, if it was just a playful typo or experiment, no worries!",
+                    "timestamp": "2026-03-27T14:31:36.127350"
                 }
             ]
         }

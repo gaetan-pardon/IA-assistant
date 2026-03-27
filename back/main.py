@@ -13,8 +13,7 @@ from controller.HistoryController import history_router
 app = FastAPI()
 
 origins= [
-   "http://localhost:5173",
-   "http://localhost:5173/"
+   "http://localhost:5173"
 ]
 
 # En-têtes CORS à inclure dans toutes les réponses
@@ -95,18 +94,6 @@ async def permission_exception_handler(request: Request, exc: PermissionError):
       headers=cors_headers
    )
 
-@app.exception_handler(Exception)
-async def general_exception_handler(request: Request, exc: Exception):
-   """Gère toutes les autres exceptions non capturées"""
-   return JSONResponse(
-      status_code=500,
-      content={
-         "status": 500,
-         "message": str(exc),
-         "details": None
-      },
-      headers=cors_headers
-   )
 
 # Configuration de la documentation OpenAPI pour inclure l'authentification par cookie (Swagger)
 def custom_openapi():

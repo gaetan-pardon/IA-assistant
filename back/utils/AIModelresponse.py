@@ -19,57 +19,6 @@ def get_max_id(messages):
             max_id = message["id"]
     return max_id
 
-""" 
-
-model_name = "Qwen/Qwen3-0.6B"
-
-# load the tokenizer and the model
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(
-    model_name,
-    torch_dtype="auto",
-    device_map="auto"
-)
-
-
-    #prompt = "Give me a short introduction to large language model."
-    #messages = [         {"role": "user", "content": prompt}     ]
-
-def get_ai_response(messages):
-    max_id=get_max_id(messages)
-    # prepare the model input
-    text = tokenizer.apply_chat_template(
-        messages,
-        tokenize=False,
-        add_generation_prompt=True,
-        enable_thinking=False # Switches between thinking and non-thinking modes. Default is True.
-    )
-    model_inputs = tokenizer([text], return_tensors="pt").to(model.device)
-
-    # conduct text completion
-    generated_ids = model.generate(
-        **model_inputs,
-        max_new_tokens=327 #6  #8
-    )
-    output_ids = generated_ids[0][len(model_inputs.input_ids[0]):].tolist() 
-
-    # parsing thinking content
-    try:
-        # rindex finding 151668 (</think>)
-        index = len(output_ids) - output_ids[::-1].index(151668)
-    except ValueError:
-        index = 0
-
-    thinking_content = tokenizer.decode(output_ids[:index], skip_special_tokens=True).strip("\n")
-    content = tokenizer.decode(output_ids[index:], skip_special_tokens=True).strip("\n")
-
-    if thinking_content != "":
-        newmessages = messages + [{"id": max_id+1, "role": "thinking_assistant", "content": thinking_content ,  "timestamp": datetime.now().isoformat()}, {"id": max_id+2, "role": "assistant", "content": content ,  "timestamp": datetime.now().isoformat()}]
-    else:
-        newmessages = messages + [{"id": max_id+1, "role": "assistant", "content": content, "timestamp": datetime.now().isoformat()}]
-    return newmessages
-
- """
 def get_ai_response_distant(messages):
         
     max_id = get_max_id(messages)
